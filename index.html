@@ -601,8 +601,8 @@
     .recognition-text {
       font-size: 1rem;
       color: rgba(255,255,255,0.92);
-      line-height: 1.7;
-      font-weight: 500;
+      line-height: 1.8;
+      font-weight: 300;
     }
 
     /* ── METHODE ── */
@@ -659,9 +659,9 @@
     }
 
     .method-step-desc {
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: var(--grey-mid);
-      line-height: 1.65;
+      line-height: 1.8;
       font-weight: 300;
     }
 
@@ -732,12 +732,44 @@
       text-transform: uppercase;
     }
 
+    .founder-bio {
+      margin-top: 1rem;
+    }
+    .founder-bio p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--grey-mid);
+      margin-bottom: 1rem;
+    }
+    .founder-bio p:last-child { margin-bottom: 0; }
+    .founder-bio p:first-child {
+      font-style: italic;
+      color: var(--black);
+      font-weight: 400;
+    }
+    .founder-peer-quote {
+      margin-top: 0.75rem !important;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--grey-light);
+      color: var(--grey-mid) !important;
+      font-style: italic;
+      font-size: 0.9rem !important;
+    }
+
     /* ── CTA ── */
     .cta-section { background: var(--blue); padding: 7rem 4rem; }
 
     .cta-inner {
       max-width: 1200px;
       margin: 0 auto;
+    }
+
+    .cta-inner-header {
+      margin-bottom: 3rem;
+    }
+
+    .cta-inner-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
@@ -1078,7 +1110,7 @@
       color: #ffffff;
       line-height: 1.8;
       margin-bottom: 1.25rem;
-      font-weight: 600;
+      font-weight: 400;
     }
 
     .recognition-outro {
@@ -1089,12 +1121,11 @@
     .recognition-outro-intro {
       font-size: 1rem;
       color: #ffffff;
-      font-weight: 600;
+      font-weight: 400;
       line-height: 1.8;
       margin-bottom: 1.25rem;
     }
     .recognition-text strong em { font-weight: 700; font-style: italic; }
-    .recognition-text { font-weight: 300; }
 
     .results-bullets {
       margin-top: 1.5rem;
@@ -1308,7 +1339,7 @@
       .testimonial-dots { display: none; }
 
       /* CTA */
-      .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cta-inner-cols { grid-template-columns: 1fr; gap: 2.5rem; }
       .cta-btn { width: 100%; text-align: center; display: flex; justify-content: center; }
       .cta-details { margin-bottom: 1.5rem; }
 
@@ -1369,8 +1400,7 @@
       /* Founders: stapel */
       .founders-cards { grid-template-columns: 1fr; gap: 2rem; }
       .founder-card-photo { max-height: 260px; }
-      .founder-bio p { font-size: 0.875rem; }
-    .founder-peer-quote { margin-top: 0.75rem !important; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.65) !important; font-style: italic; }
+      .founder-bio p { font-size: 0.9rem; }
       .founder-card-info { padding: 1.25rem 1.25rem; }
 
       /* Inline testimonial */
@@ -1520,32 +1550,32 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo" onclick="showMain(); return false;">
+    <a href="#" class="nav-logo" id="nav-logo">
       <span class="nav-logo-plus">+</span>Fundament.
     </a>
     <div class="nav-links">
-      <a href="#" class="nav-link active" onclick="showMain(); return false;">Home</a>
+      <a href="#" class="nav-link active" id="nav-home-link">Home</a>
       <a href="#voor-wie" class="nav-link">Voor wie</a>
       <a href="#waarom" class="nav-link">Waarom</a>
       <a href="#methode" class="nav-link">Methode</a>
       <a href="#over-ons" class="nav-link">Over</a>
-      <a href="#" class="nav-link" id="nav-blog-link" onclick="showBlog(); return false;">Blog</a>
+      <a href="#" class="nav-link" id="nav-blog-link">Blog</a>
       <a href="#contact" class="nav-cta">Meld je aan</a>
     </div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen" onclick="(function(){var m=document.getElementById('mobile-menu');var h=document.getElementById('hamburger');var o=m.classList.toggle('open');h.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''})()">
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#" class="nav-link" onclick="closeMobileMenu(); showMain(); return false;">Home</a>
-    <a href="#voor-wie" class="nav-link" onclick="closeMobileMenu()">Voor wie</a>
-    <a href="#waarom" class="nav-link" onclick="closeMobileMenu()">Waarom</a>
-    <a href="#methode" class="nav-link" onclick="closeMobileMenu()">Methode</a>
-    <a href="#over-ons" class="nav-link" onclick="closeMobileMenu()">Over</a>
-    <a href="#" class="nav-link" onclick="closeMobileMenu(); showBlog(); return false;">Blog</a>
-    <a href="#contact" class="nav-cta" onclick="closeMobileMenu()">Meld je aan</a>
+    <a href="#" class="nav-link" id="mobile-home-link">Home</a>
+    <a href="#voor-wie" class="nav-link" id="mobile-voorwie-link">Voor wie</a>
+    <a href="#waarom" class="nav-link" id="mobile-waarom-link">Waarom</a>
+    <a href="#methode" class="nav-link" id="mobile-methode-link">Methode</a>
+    <a href="#over-ons" class="nav-link" id="mobile-over-link">Over</a>
+    <a href="#" class="nav-link" id="mobile-blog-link">Blog</a>
+    <a href="#contact" class="nav-cta" id="mobile-contact-link">Meld je aan</a>
   </div>
 
   <!-- Explore tab -->
@@ -1554,10 +1584,10 @@
   <!-- HERO -->
   <section class="hero" style="padding: 0;">
     <div class="hero-left">
-      <p class="hero-eyebrow">8 mannen &mdash; 8 dagen verspreid over 8 maanden</p>
+      <p class="hero-eyebrow">8 MANNEN &mdash; 8 DAGEN &mdash; 1 JAAR</p>
       <h1 class="hero-headline">Fundament.</h1>
       <h2 class="hero-subheadline">Eigen koers, in verbinding met anderen.</h2>
-      <p class="hero-sub">Je voelt dat er een gat zit tussen wie je ten diepste bent en wie je voor de buitenwereld bent geworden. Je weet dat er meer is: een fundament dat dieper ligt dan je functietitel, je rol als vader, partner, vriend. <span class="marker">Wat als je vanuit dat fundament je leven zou leiden?</span> Eigen koers, in verbinding met de mensen om je heen.<br><br>Je hebt <span class="marker">veel bereikt</span>, maar daarmee is de dagelijkse ruis van targets, verwachtingen en sociale rollen ook groot. Je <span class="marker">mist de vervulling</span> waar je op hoopte. Je verlangt naar meer rust, intensiteit en diepgang.<br><br>FUNDAMENT is ontstaan om de verbinding met je kern te herstellen. Als toegang voor meer vervulling en meer impact. En met de vriendschap van andere mannen als een belangrijke basis.<br><br>Vanuit onze eigen ervaring weten we dat ware impact niet voortkomt uit harder werken, maar uit <span class="marker">dieper wortelen</span>. In dit programma filteren we de ruis weg zodat jouw <span class="marker">oorspronkelijke signaal weer hoorbaar</span> wordt &mdash; en blijft &mdash; in contact met de ander.</p>
+      <p class="hero-sub">Je voelt dat er een gat zit tussen wie je ten diepste bent en wie je voor de buitenwereld bent geworden. Je weet dat er meer is: een fundament dat dieper ligt dan je functietitel, je rol als vader, partner, vriend. <span class="marker">Wat als je vanuit dat fundament je leven zou leiden?</span> Eigen koers, in verbinding met de mensen om je heen.<br><br>Je hebt <span class="marker">veel bereikt</span>, maar daarmee is de dagelijkse ruis van targets, verwachtingen en sociale rollen ook groot. Je <span class="marker">mist de vervulling</span> waar je op hoopte. Je verlangt naar meer rust, intensiteit en diepgang.<br><br>FUNDAMENT is ontstaan om de verbinding met je kern te herstellen. Als toegang voor meer vervulling en meer impact. En met de <span class="marker">vriendschap</span> van andere mannen als een belangrijke basis.<br><br>Vanuit onze eigen ervaring weten we dat ware impact niet voortkomt uit harder werken, maar uit <span class="marker">dieper wortelen</span>. In dit programma filteren we de ruis weg zodat jouw <span class="marker">oorspronkelijke signaal weer hoorbaar</span> wordt &mdash; en blijft &mdash; in contact met de ander.</p>
       <a href="#contact" class="hero-btn">
         Gesprek aanvragen &rarr;
       </a>
@@ -1619,7 +1649,7 @@
       <p class="results-intro fade-up">Je stapt naar buiten met:</p>
       <div class="results-bullets fade-up">
         <div class="results-bullet-item"><div class="results-bullet-dot"></div><p><strong><em>Een scherpe koers:</em></strong> Inzicht in wie je ten diepste bent en wat je hier op aarde te doen hebt.</p></div>
-        <div class="results-bullet-item"><div class="results-bullet-dot"></div><p><strong><em>Alignment Routine:</em></strong> Het vermogen om beslissingen te nemen die congruent zijn met je essentie, zowel zakelijk als priv&eacute;.</p></div>
+        <div class="results-bullet-item"><div class="results-bullet-dot"></div><p><strong><em>Alignment routine:</em></strong> Het vermogen om beslissingen te nemen die congruent zijn met je essentie, zowel zakelijk als priv&eacute;.</p></div>
         <div class="results-bullet-item"><div class="results-bullet-dot"></div><p><strong><em>Strategisch manifest:</em></strong> Een praktisch plan om je diepere richting vorm te geven in je huidige carri&egrave;re en leven.</p></div>
         <div class="results-bullet-item"><div class="results-bullet-dot"></div><p><strong><em>Interne autoriteit:</em></strong> Een hernieuwd gevoel van stevigheid en &lsquo;geaardheid&rsquo;. Je handelt niet meer vanuit reactie op de buitenwereld, maar acteert vanuit jouw kern.</p></div>
         <div class="results-bullet-item"><div class="results-bullet-dot"></div><p><strong><em>Mentale ruimte:</em></strong> Door het wegfilteren van de ruis ontstaat er weer ruimte voor verrassingen, intensiteit en focus.</p></div>
@@ -1837,66 +1867,81 @@
   <!-- CTA + CONTACT -->
   <section class="cta-section" id="aanmelden">
     <div class="cta-inner" id="contact">
-      <div>
+      <div class="cta-inner-header">
         <p class="section-label fade-up"><span class="marker" style="color:#1A3A4A;">Aanmelden voor Fundament.</span></p>
         <h2 class="cta-headline fade-up">Gesprek aanvragen</h2>
-        <div style="margin-bottom:1.75rem;"></div>
-        <div class="cta-details fade-up">
-          <div class="cta-detail">
-            <span class="cta-detail-label">Format</span>
-            <span class="cta-detail-value" style="text-align:right;">8 dagen verspreid over een jaar</span>
-          </div>
-          <div class="cta-detail">
-            <span class="cta-detail-label">Groep</span>
-            <span class="cta-detail-value">8 mannen</span>
-          </div>
-          <div class="cta-detail">
-            <span class="cta-detail-label">Investering</span>
-            <span class="cta-detail-value">€ 3.350 excl. BTW</span>
-          </div>
-          <div class="cta-detail">
-            <span class="cta-detail-label">Selectie</span>
-            <span class="cta-detail-value">Op basis van gesprek</span>
-          </div>
-        </div>
       </div>
+      <div class="cta-inner-cols">
 
-      <div class="fade-up">
-
-        <div id="contact-success" style="display:none; background:rgba(255,255,255,0.15); color:#fff; padding:1.5rem 2rem; margin-bottom:1.5rem; font-size:0.95rem; line-height:1.6;">
-          <strong>Bericht verstuurd.</strong> Robin en Martijn nemen snel contact met je op.
-        </div>
-        <div id="contact-error" style="display:none; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.3); color:#fff; padding:1.25rem 1.5rem; margin-bottom:1.5rem; font-size:0.9rem; line-height:1.6;">
-          Er ging iets mis. Stuur direct een mail naar <a href="mailto:robin@werkplaats.org" style="color:#fff;">robin@werkplaats.org</a>.
-        </div>
-
-        <div id="contact-form">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem;">
-            <div>
-              <label style="display:block; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">Naam</label>
-              <input type="text" id="cf-name" placeholder="Je naam" style="width:100%; padding:0.85rem 1rem; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:#fff; font-size:0.9rem; font-family:inherit; box-sizing:border-box; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'">
+        <!-- Linker kolom: tabel -->
+        <div style="display:flex; flex-direction:column;" class="fade-up">
+          <div class="cta-details">
+            <div class="cta-detail">
+              <span class="cta-detail-label">Format</span>
+              <span class="cta-detail-value" style="text-align:right;">
+                8 dagen verspreid over een jaar<br>
+                <span style="display:block; margin-top:0.4rem; font-size:0.8rem; font-weight:400; opacity:0.85; line-height:1.6;">
+                  16 okt &amp; 13 nov &amp; 18 dec 2026<br>
+                  8 jan &amp; 19 feb &amp; 26 mrt &amp; 16 apr &amp; 14 mei 2027
+                </span>
+              </span>
             </div>
-            <div>
-              <label style="display:block; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">E-mailadres</label>
-              <input type="email" id="cf-email" placeholder="je@email.nl" style="width:100%; padding:0.85rem 1rem; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:#fff; font-size:0.9rem; font-family:inherit; box-sizing:border-box; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'">
+            <div class="cta-detail">
+              <span class="cta-detail-label">Groep</span>
+              <span class="cta-detail-value">8 mannen</span>
+            </div>
+            <div class="cta-detail">
+              <span class="cta-detail-label">Locatie</span>
+              <span class="cta-detail-value">Regio Utrecht</span>
+            </div>
+            <div class="cta-detail">
+              <span class="cta-detail-label">Investering</span>
+              <span class="cta-detail-value">€ 3.350 excl. BTW</span>
+            </div>
+            <div class="cta-detail">
+              <span class="cta-detail-label">Selectie</span>
+              <span class="cta-detail-value">Op basis van gesprek</span>
             </div>
           </div>
-          <div style="margin-bottom:1rem;">
-            <label style="display:block; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">Jouw bericht</label>
-            <textarea id="cf-message" rows="4" placeholder="Vertel ons iets over jezelf en wat je zoekt..." style="width:100%; padding:0.85rem 1rem; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:#fff; font-size:0.9rem; font-family:inherit; box-sizing:border-box; outline:none; resize:vertical; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'"></textarea>
-          </div>
-          <button id="cf-submit" onclick="submitContactForm()" style="background:#fff; color:var(--blue); border:none; padding:1rem 2.5rem; font-size:0.9rem; font-weight:700; letter-spacing:0.04em; cursor:pointer; transition:background 0.2s; width:100%;" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='#fff'">
-            Verstuur bericht &rarr;
-          </button>
-          <p style="margin-top:0.75rem; font-family:'Space Mono',monospace; font-size:0.6rem; color:rgba(255,255,255,0.5); letter-spacing:0.06em; line-height:1.7;">We starten met een persoonlijk gesprek om te kijken of er een match is en waar deelname voor jou in essentie over zou moeten gaan.</p>
         </div>
+
+        <!-- Rechter kolom: formulier -->
+        <div class="fade-up">
+          <div id="contact-success" style="display:none; background:rgba(255,255,255,0.15); color:#fff; padding:1.5rem 2rem; margin-bottom:1.5rem; font-size:0.95rem; line-height:1.6;">
+            <strong>Bericht verstuurd.</strong> Robin en Martijn nemen snel contact met je op.
+          </div>
+          <div id="contact-error" style="display:none; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.3); color:#fff; padding:1.25rem 1.5rem; margin-bottom:1.5rem; font-size:0.9rem; line-height:1.6;">
+            Er ging iets mis. Stuur direct een mail naar <a href="mailto:robin@werkplaats.org" style="color:#fff;">robin@werkplaats.org</a>.
+          </div>
+          <div id="contact-form">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem;">
+              <div>
+                <label style="display:block; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">Naam</label>
+                <input type="text" id="cf-name" placeholder="Je naam" style="width:100%; padding:0.85rem 1rem; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:#fff; font-size:0.9rem; font-family:inherit; box-sizing:border-box; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'">
+              </div>
+              <div>
+                <label style="display:block; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">E-mailadres</label>
+                <input type="email" id="cf-email" placeholder="je@email.nl" style="width:100%; padding:0.85rem 1rem; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:#fff; font-size:0.9rem; font-family:inherit; box-sizing:border-box; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'">
+              </div>
+            </div>
+            <div style="margin-bottom:1rem;">
+              <label style="display:block; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem;">Jouw bericht</label>
+              <textarea id="cf-message" rows="4" placeholder="Vertel ons iets over jezelf en wat je zoekt..." style="width:100%; padding:0.85rem 1rem; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.08); color:#fff; font-size:0.9rem; font-family:inherit; box-sizing:border-box; outline:none; resize:vertical; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'"></textarea>
+            </div>
+            <button id="cf-submit" style="background:#fff; color:var(--blue); border:none; padding:1rem 2.5rem; font-size:0.9rem; font-weight:700; letter-spacing:0.04em; cursor:pointer; transition:background 0.2s; width:100%;" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='#fff'">
+              Verstuur bericht &rarr;
+            </button>
+            <p style="margin-top:0.75rem; font-family:'Space Mono',monospace; font-size:0.6rem; color:rgba(255,255,255,0.5); letter-spacing:0.06em; line-height:1.7;">We starten met een persoonlijk gesprek om te kijken of er een match is en waar deelname voor jou in essentie over zou moeten gaan.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <footer>
     <span class="footer-logo"><span class="footer-logo-plus">+</span>Fundament.</span>
-    <span class="footer-note">Robin Diekman &amp; Martijn Schreuder Goedheijt &mdash; 2026</span>
+    <span class="footer-note">VOF Werkplaats voor groei en transformatie &mdash; 2026</span>
     <div class="footer-legal">
       <a href="algemene-voorwaarden.pdf" target="_blank">Algemene voorwaarden</a>
       <a href="privacyverklaring.pdf" target="_blank">Privacyverklaring</a>
@@ -1920,7 +1965,7 @@
         <p class="section-label">10 artikelen</p>
         <div class="blog-grid" id="blog-grid">
 
-          <div class="blog-card fade-up" onclick="showArticle(0)">
+          <div class="blog-card fade-up" data-blog-idx="0">
             <div class="blog-card-num">01</div>
             <div class="blog-card-title">Omgaan met schaamte</div>
             <div class="blog-card-excerpt">Schaamte is waarschijnlijk de meest verborgen en genegeerde emotie bij mannen. "Wees een man!" verbergt allerlei vormen van verwachtingen — en het niet voldoen daaraan roept ronduit schaamte op.</div>
@@ -1928,7 +1973,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(1)">
+          <div class="blog-card fade-up" data-blog-idx="1">
             <div class="blog-card-num">02</div>
             <div class="blog-card-title">Verlangen en uitreiking</div>
             <div class="blog-card-excerpt">Als jongetje had hij talloze keren uitgereikt naar zijn vader, maar keer-op-keer bleef hij met lege handen staan. Zijn verlangen veranderde in gemis, zijn gemis in wanhoop.</div>
@@ -1936,7 +1981,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(2)">
+          <div class="blog-card fade-up" data-blog-idx="2">
             <div class="blog-card-num">03</div>
             <div class="blog-card-title">Mannelijkheid is destructief</div>
             <div class="blog-card-excerpt">Wat bedoelen we eigenlijk als we zeggen dat mannelijkheid destructief is? En wanneer wordt kracht een last die mannen zichzelf opleggen — en anderen?</div>
@@ -1944,7 +1989,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(3)">
+          <div class="blog-card fade-up" data-blog-idx="3">
             <div class="blog-card-num">04</div>
             <div class="blog-card-title">Wat als je alles moet loslaten?</div>
             <div class="blog-card-excerpt">Er zijn momenten in een leven waarop je niets anders kunt dan loslaten. Je baan, je relatie, je zelfbeeld. Wat doet dat met een man? En wat vraagt het van je?</div>
@@ -1952,7 +1997,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(4)">
+          <div class="blog-card fade-up" data-blog-idx="4">
             <div class="blog-card-num">05</div>
             <div class="blog-card-title">"Mijn opa was niet zo'n lieve man"</div>
             <div class="blog-card-excerpt">Hoe patronen van generatie op generatie worden doorgegeven — en hoe je als man kunt doorbreken wat je meegekregen hebt, zonder je voorouders te veroordelen.</div>
@@ -1960,7 +2005,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(5)">
+          <div class="blog-card fade-up" data-blog-idx="5">
             <div class="blog-card-num">06</div>
             <div class="blog-card-title">"Ik heb altijd geloofd dat ik een slecht kind was"</div>
             <div class="blog-card-excerpt">Een van de meest pijnlijke overtuigingen die mannen met zich meedragen. Waar komt die overtuiging vandaan, en wat heb je nodig om hem los te laten?</div>
@@ -1968,7 +2013,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(6)">
+          <div class="blog-card fade-up" data-blog-idx="6">
             <div class="blog-card-num">07</div>
             <div class="blog-card-title">Als man betekenis aan emoties geven</div>
             <div class="blog-card-excerpt">Mannen zijn er zelden in getraind om emoties te benoemen, laat staan te begrijpen. Wat als je leert luisteren naar wat je voelt — niet als zwakte, maar als informatie?</div>
@@ -1976,7 +2021,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(7)">
+          <div class="blog-card fade-up" data-blog-idx="7">
             <div class="blog-card-num">08</div>
             <div class="blog-card-title">De keuze tussen expressie of depressie</div>
             <div class="blog-card-excerpt">Wat er niet naar buiten komt, keert naar binnen. Onderdrukte emoties hebben een prijs. De keuze om je te uiten is niet soft — het is overleven.</div>
@@ -1984,7 +2029,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(8)">
+          <div class="blog-card fade-up" data-blog-idx="8">
             <div class="blog-card-num">09</div>
             <div class="blog-card-title">Afwijzen zodat je niet wordt afgewezen</div>
             <div class="blog-card-excerpt">Zelf de deur dichtgooien voordat een ander hem dicht kan gooien. Een beschermingsmechanisme dat mannen vaak onbewust gebruiken — en dat hen eenzaam maakt.</div>
@@ -1992,7 +2037,7 @@
             <div class="blog-card-arrow">Lees artikel →</div>
           </div>
 
-          <div class="blog-card fade-up" onclick="showArticle(9)">
+          <div class="blog-card fade-up" data-blog-idx="9">
             <div class="blog-card-num">10</div>
             <div class="blog-card-title">Waarom we hunkeren naar erkenning</div>
             <div class="blog-card-excerpt">Erkenning is een oerbehoefte. Maar wat doe je als je die als kind nauwelijks hebt gekregen? En hoe stop je met het zoeken ervan op plekken waar je hem niet vindt?</div>
@@ -2009,7 +2054,7 @@
   <div id="blog-article" class="blog-article">
     <div class="blog-article-header">
       <div class="blog-article-header-inner">
-        <span class="blog-back" onclick="showBlog()">← Terug naar blog</span>
+        <span class="blog-back" id="blog-back-btn">← Terug naar blog</span>
         <h1 class="blog-article-title" id="article-title"></h1>
         <p class="blog-article-intro" id="article-intro"></p>
         <p class="blog-article-byline" id="article-byline"></p>
@@ -2025,142 +2070,175 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-    // ── Hamburger menu ──────────────────────────────────────────────────────
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobile-menu');
+      // ── Hamburger ────────────────────────────────────────────────────────
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobile-menu');
 
-    if (hamburger && mobileMenu) {
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        hamburger.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      window.closeMobileMenu = closeMenu;
+
       hamburger.addEventListener('click', function() {
-        var isOpen = mobileMenu.classList.toggle('open');
-        hamburger.classList.toggle('open', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (mobileMenu.classList.contains('open')) { closeMenu(); } else { openMenu(); }
       });
-    }
 
-    function closeMobileMenu() {
-      if (mobileMenu) mobileMenu.classList.remove('open');
-      if (hamburger) hamburger.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    window.closeMobileMenu = closeMobileMenu;
+      // ── Fade-up observer (desktop only) ──────────────────────────────────
+      if (window.matchMedia('(min-width: 901px)').matches && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+      }
 
-    // ── Fade-up observer (alleen desktop) ───────────────────────────────────
-    if (window.matchMedia('(min-width: 901px)').matches && 'IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
+      // ── Testimonial slider ────────────────────────────────────────────────
+      var tCurrent = 0;
+      var tTotal = 8;
+      var tTrack  = document.getElementById('testimonial-track');
+      var tCounter = document.getElementById('t-counter');
+      var tDots   = document.getElementById('t-dots');
+
+      if (tDots) {
+        for (var i = 0; i < tTotal; i++) {
+          (function(n) {
+            var dot = document.createElement('button');
+            dot.className = 'testimonial-dot' + (n === 0 ? ' active' : '');
+            dot.addEventListener('click', function() { goTo(n); });
+            tDots.appendChild(dot);
+          })(i);
+        }
+      }
+      function goTo(n) {
+        tCurrent = n;
+        if (tTrack)   tTrack.style.transform = 'translateX(-' + tCurrent * 100 + '%)';
+        if (tCounter) tCounter.textContent = (tCurrent + 1) + ' / ' + tTotal;
+        document.querySelectorAll('.testimonial-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === tCurrent);
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.fade-up').forEach(function(el) {
-        observer.observe(el);
-      });
-    }
-
-    // ── Testimonial slider ───────────────────────────────────────────────────
-    var tCurrent = 0;
-    var tTotal = 8;
-    var tTrack = document.getElementById('testimonial-track');
-    var tCounter = document.getElementById('t-counter');
-    var tDotsContainer = document.getElementById('t-dots');
-
-    if (tDotsContainer) {
-      for (var i = 0; i < tTotal; i++) {
-        (function(n) {
-          var dot = document.createElement('button');
-          dot.className = 'testimonial-dot' + (n === 0 ? ' active' : '');
-          dot.addEventListener('click', function() { testimonialGo(n); });
-          tDotsContainer.appendChild(dot);
-        })(i);
       }
-    }
+      var tPrev = document.getElementById('t-prev');
+      var tNext = document.getElementById('t-next');
+      if (tPrev) tPrev.addEventListener('click', function() { goTo((tCurrent - 1 + tTotal) % tTotal); });
+      if (tNext) tNext.addEventListener('click', function() { goTo((tCurrent + 1) % tTotal); });
+      setInterval(function() { goTo((tCurrent + 1) % tTotal); }, 6000);
 
-    function testimonialGo(n) {
-      tCurrent = n;
-      if (tTrack) tTrack.style.transform = 'translateX(-' + (tCurrent * 100) + '%)';
-      if (tCounter) tCounter.textContent = (tCurrent + 1) + ' / ' + tTotal;
-      document.querySelectorAll('.testimonial-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === tCurrent);
-      });
-    }
+      // ── Blog page switching ───────────────────────────────────────────────
+      var blogPage    = document.getElementById('blog-page');
+      var blogArticle = document.getElementById('blog-article');
+      var navBlogLink = document.getElementById('nav-blog-link');
 
-    function testimonialMove(dir) {
-      testimonialGo((tCurrent + dir + tTotal) % tTotal);
-    }
-
-    var tPrev = document.getElementById('t-prev');
-    var tNext = document.getElementById('t-next');
-    if (tPrev) tPrev.addEventListener('click', function() { testimonialMove(-1); });
-    if (tNext) tNext.addEventListener('click', function() { testimonialMove(1); });
-    setInterval(function() { testimonialMove(1); }, 6000);
-
-    // ── Blog pagina-wisseling ────────────────────────────────────────────────
-    var blogPage = document.getElementById('blog-page');
-    var blogArticle = document.getElementById('blog-article');
-    var navBlogLink = document.getElementById('nav-blog-link');
-
-    function getMainElements() {
-      // Alle directe children van body behalve nav, blog-page, blog-article, explore-tab en scripts
-      var all = document.body.children;
-      var result = [];
-      for (var i = 0; i < all.length; i++) {
-        var el = all[i];
-        var id = el.id || '';
-        var tag = el.tagName.toLowerCase();
-        if (id !== 'blog-page' && id !== 'blog-article' && !el.classList.contains('mobile-menu') && tag !== 'nav' && tag !== 'script' && !el.classList.contains('explore-tab')) {
-          result.push(el);
+      function getMain() {
+        var els = [];
+        var children = document.body.children;
+        for (var i = 0; i < children.length; i++) {
+          var el = children[i];
+          var id = el.id || '';
+          var tag = el.tagName.toLowerCase();
+          if (id !== 'blog-page' && id !== 'blog-article' &&
+              !el.classList.contains('mobile-menu') &&
+              tag !== 'nav' && tag !== 'script' &&
+              !el.classList.contains('explore-tab')) {
+            els.push(el);
+          }
         }
+        return els;
       }
-      return result;
-    }
 
-    function showMain() {
-      getMainElements().forEach(function(el) { el.style.display = ''; });
-      blogPage.classList.remove('active');
-      blogArticle.classList.remove('active');
-      if (navBlogLink) navBlogLink.classList.remove('active');
-      window.scrollTo(0, 0);
-      closeMobileMenu();
-    }
-    window.showMain = showMain;
+      function showMain() {
+        getMain().forEach(function(el) { el.style.display = ''; });
+        blogPage.classList.remove('active');
+        blogArticle.classList.remove('active');
+        if (navBlogLink) navBlogLink.classList.remove('active');
+        window.scrollTo(0, 0);
+        closeMenu();
+      }
+      function showBlog() {
+        getMain().forEach(function(el) { el.style.display = 'none'; });
+        blogPage.classList.add('active');
+        blogArticle.classList.remove('active');
+        if (navBlogLink) navBlogLink.classList.add('active');
+        window.scrollTo(0, 0);
+        closeMenu();
+      }
+      function showArticle(idx) {
+        var b = blogs[idx];
+        document.getElementById('article-title').textContent    = b.title;
+        document.getElementById('article-intro').textContent    = b.intro;
+        document.getElementById('article-byline').textContent   = b.byline;
+        document.getElementById('article-body').innerHTML       = b.body;
+        blogPage.classList.remove('active');
+        blogArticle.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+      window.showMain    = showMain;
+      window.showBlog    = showBlog;
+      window.showArticle = showArticle;
 
-    function showBlog() {
-      getMainElements().forEach(function(el) { el.style.display = 'none'; });
-      blogPage.classList.add('active');
-      blogArticle.classList.remove('active');
-      if (navBlogLink) navBlogLink.classList.add('active');
-      window.scrollTo(0, 0);
-      closeMobileMenu();
-    }
-    window.showBlog = showBlog;
+      // Nav links
+      var navLogo       = document.getElementById('nav-logo');
+      var navHomeLink   = document.getElementById('nav-home-link');
+      var mobileHomeLnk = document.getElementById('mobile-home-link');
+      var mobileBlogLnk = document.getElementById('mobile-blog-link');
+      var blogBackBtn   = document.getElementById('blog-back-btn');
 
-    function showArticle(idx) {
-      var b = blogs[idx];
-      document.getElementById('article-title').textContent = b.title;
-      document.getElementById('article-intro').textContent = b.intro;
-      document.getElementById('article-byline').textContent = b.byline;
-      document.getElementById('article-body').innerHTML = b.body;
-      blogPage.classList.remove('active');
-      blogArticle.classList.add('active');
-      window.scrollTo(0, 0);
-    }
-    window.showArticle = showArticle;
+      if (navLogo)       navLogo.addEventListener('click',       function(e){ e.preventDefault(); showMain(); });
+      if (navHomeLink)   navHomeLink.addEventListener('click',   function(e){ e.preventDefault(); showMain(); });
+      if (navBlogLink)   navBlogLink.addEventListener('click',   function(e){ e.preventDefault(); showBlog(); });
+      if (mobileHomeLnk) mobileHomeLnk.addEventListener('click', function(e){ e.preventDefault(); showMain(); });
+      if (mobileBlogLnk) mobileBlogLnk.addEventListener('click', function(e){ e.preventDefault(); showBlog(); });
+      if (blogBackBtn)   blogBackBtn.addEventListener('click',   function()  { showBlog(); });
 
-    // Home-link herstelt hoofdpagina als blog open is
-    var homeLink = document.querySelector('nav .nav-link');
-    if (homeLink) {
-      homeLink.addEventListener('click', function(e) {
-        if (blogPage.classList.contains('active') || blogArticle.classList.contains('active')) {
+      // Mobile menu: close on any anchor link click
+      document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function() { closeMenu(); });
+      });
+
+      // Section anchor links (Voor wie, Waarom, Methode, Over, Meld je aan, etc.):
+      // these point to sections that live on the home page. If we're currently
+      // showing the blog overview or a blog article, those sections are hidden,
+      // so clicking such a link needs to switch back to Home first and then scroll.
+      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        var href = a.getAttribute('href');
+        if (!href || href.length < 2) return; // skip plain "#" links (Home/Blog, handled above)
+        a.addEventListener('click', function(e) {
           e.preventDefault();
-          showMain();
-        }
+          var targetId = href.slice(1);
+          var scrollToTarget = function() {
+            var target = document.getElementById(targetId);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          };
+          var onBlogPage = blogPage.classList.contains('active') || blogArticle.classList.contains('active');
+          if (onBlogPage) {
+            showMain();
+            setTimeout(scrollToTarget, 60);
+          } else {
+            scrollToTarget();
+          }
+          closeMenu();
+        });
       });
-    }
 
-    }); // einde DOMContentLoaded
+      // Blog cards
+      document.querySelectorAll('.blog-card[data-blog-idx]').forEach(function(card) {
+        card.addEventListener('click', function() {
+          showArticle(parseInt(card.getAttribute('data-blog-idx'), 10));
+        });
+      });
+
+      // Contact form submit
+      var submitBtn = document.getElementById('cf-submit');
+      if (submitBtn) submitBtn.addEventListener('click', function() { submitContactForm(); });
+
+    }); // end DOMContentLoaded
   </script>
 
   <script>
@@ -2169,62 +2247,62 @@
       {
         title: "Omgaan met schaamte",
         intro: "Gevoelens van schaamte die we ervaren wanneer we naar ons idee niet voldoen aan een bepaald beeld van 'man zijn', kunnen we makkelijk wegdrukken met agressie en seks.",
-        byline: "Gepubliceerd op: 14-08-2022 door Robin & Martijn",
-        body: '<p>Op de vraag "waar schaam jij je voor?" kunnen wij tal van voorbeelden aandragen. We schamen ons namelijk op de meest uiteenlopende momenten.</p><p>Schaamte is waarschijnlijk de meest verborgen en genegeerde emotie bij mannen. "Wees een man!" lijkt een eenvoudige uitspraak, maar daarachter liggen allerlei vormen van verwachtingen. En in veel gevallen roept het niet voldoen aan deze verwachtingen ronduit schaamte op.</p><p>Schaamte kan een gezonde emotie zijn, maar je ook ongezond beperken in je persoonlijk leiderschap. Als je je schaamte niet erkent en begrijpt, kan het je klem zetten in je emoties en relaties.</p><h3>De vier overlevingspatronen op schaamte</h3><ol><li>De man die streeft naar perfectie, waarbij de vorm het houvast wordt;</li><li>De man die vervalt in passiviteit, zodat hij niet in de schijnwerpers kan komen;</li><li>De zelf-afwijzer, die zichzelf afkeurt voordat een ander het kan doen;</li><li>De schaamteloze man, die zichzelf zover boven zijn eigen schaamte plaatst dat het hem niet meer kan raken.</li></ol><p>Gevoelens van schaamte kunnen we makkelijk wegdrukken met agressie of seks. Beiden helpen ons snel af van dat benauwende gevoel dat een aantasting betekent van wie we zijn als man.</p><h3>Werken met de innerlijke criticus</h3><p>De kern zit in onze innerlijke criticus: de kritische stemmetjes waar we als kind aan zijn blootgesteld. Van de innerlijke criticus kom je niet makkelijk af, maar als je hem goed kent kun je zo met hem omgaan dat hij zijn macht verliest.</p><p>Ga terug naar je kindertijd. Om welke redenen werd jij als kind bekritiseerd? Merk op dat er een verschil bestaat tussen wat je innerlijke criticus zegt en wie je bent. "Mijn innerlijke criticus vindt dat ik het niet waard ben" is iets heel anders dan "Ik ben het niet waard".</p><p class="source-note">Bronnen: The Invisible Presence (Michael Gurian) &middot; To be a Man (Robert A. Masters) &middot; Perfect Love, Imperfect Relationships (John Welwood)</p>'
+        byline: "Robin & Martijn",
+        body: '<p>Op de vraag "waar schaam jij je voor?" kunnen wij tal van voorbeelden aandragen. We schamen ons namelijk op de meest uiteenlopende momenten. Ga maar eens bij jezelf na wanneer je je voor het laatst schaamde. Bijvoorbeeld omdat:</p><ul><li>Je jezelf bekritiseert omdat je vindt dat jij anders bent of doet dan de rest;</li><li>Je wilt voldoen aan de normen van anderen en druk van buitenaf ervaart;</li><li>Je iets hebt gedaan of juist nagelaten waarover jij je schuldig voelt;</li><li>Je iets wilt presteren maar het lukt je niet;</li></ul><p>Schaamte is waarschijnlijk de meest verborgen en genegeerde emotie bij mannen. "Wees een man!" lijkt een eenvoudige uitspraak, maar daarachter liggen allerlei vormen van verwachtingen. En in veel gevallen roept het niet voldoen aan deze verwachtingen ronduit schaamte op. Schaamte kan een gezonde emotie zijn, maar je ook ongezond beperken in je persoonlijk leiderschap. Als je je schaamte niet erkent en begrijpt, kan het je klem zetten in je emoties en relaties.</p><p>Schaamte brengt ons bij de behoefte om oké te zijn in de ogen van de ander. Het moedigt ons aan om onszelf te verbeteren, meer succes te hebben of "meer man" te zijn om erbij te blijven horen. Whatever that means. Tegelijkertijd kunnen we helemaal uitgeput raken van de stem van onze innerlijk criticus &mdash; tenzij we vraagtekens zetten bij de macht die hij over ons heeft.</p><p>Mannen, evenals vrouwen trouwens, herkennen zichzelf vaak in één of meerdere van de vier \'overlevingspatronen\' op schaamte. Het zijn de tactieken die we inzetten om de schaamte en zijn achterliggende oorzaak niet te hoeven aankijken:</p><ol><li>De man die streeft naar perfectie, waarbij de vorm het houvast wordt zodat daarop in ieder geval geen kritiek kan komen;</li><li>De man die vervalt in passiviteit, zodat hij maar niet in de schijnwerpers kan komen te staan;</li><li>De zelf-afwijzer, de man die zichzelf afkeurt voordat een ander het kan doen;</li><li>De schaamteloze man, de man die zichzelf zóver boven zijn eigen schaamte plaatst dat het hem niet meer kan raken.</li></ol><p>Gevoelens van schaamte die we ervaren wanneer we naar ons idee niet voldoen aan een bepaald beeld van \'man zijn\', kunnen we makkelijk wegdrukken met bijvoorbeeld agressie en seks. Beiden helpen ons snel af van dat benauwende en verlegen makende gevoel dat niet alleen een aantasting betekent van wat we doen als man, maar ook van wie we zijn als man.</p><p>Welk middel is er op korte termijn immers beter voor een man die zijn zelfvertrouwen is verloren, dan het vermogen om andere mannen óf vrouwen fysiek of seksueel te overheersen?</p><p>Op het moment dat de emotie schaamte je beperkt in jouw leiderschap en het vol leven van jouw potentieel, dan zul je naar de schaamte moeten toekeren. Ja, dat is pijnlijk, maar wel helpend. Want de kern zit \'m in onze innerlijk criticus: de kritische en beschamende stemmetjes waar we als kind aan zijn blootgesteld en die zich nu manifesteren als negatieve zelfbeoordeling. Van de innerlijk criticus kom je niet makkelijk af, maar als je hem goed kent kunt je wel zo met \'m omgaan dat hij z\'n macht verliest:</p><ul><li>Ga terug naar je kindertijd, naar de geschiedenis van jouw innerlijk criticus. Om welke redenen werd jij als kind bekritiseerd of beschaamd? Wat was daar toen je reactie op? En hoe blijf je dat in het hier-en-nu herhalen?</li><li>Word je ervan bewust dat je de neiging hebt om je met jouw innerlijk criticus te vereenzelvigen. Hoe jij jezelf weer kind voelt tegenover de volwassen klinkende stem van jouw innerlijke criticus. Merk op dat er een verschil bestaat tussen wat jouw innerlijke criticus zegt en wie of wat je bent: "Mijn innerlijke criticus vindt dat ik het niet waard ben" is iets heel anders dan "Ik ben het niet waard".</li><li>Als jouw innerlijke criticus bijzonder vasthoudend is, breng gedurende minstens tien ademhalingen al je aandacht naar de adem. Merk op waar er in jouw lijf spanning aanwezig is. Ontspan je buik en bekkenbodem bewust en laat je lichaam vrij bewegen. Kleine bewegingen zijn al goed. De meesten van ons verroeren zich namelijk niet als ze de stem van hun innerlijke criticus horen, net als een kind dat verstard onder de blik van een boze ouder.</li><li>Leer schaamtegevoelens van jouw (voor)ouders zo goed mogelijk kennen. Onderzoek de rol die schaamte heeft gespeeld in het leven van jouw ouders en hun ouders. Wat hebben zij meegemaakt waarover beschamend of veroordelend werd gesproken? Hoe heb jij dat overgenomen?</li><li>Hoe speelt collectieve schaamte in jouw voorgeschiedenis? Bijvoorbeeld vanuit culturele of geloofsovertuigingen. Aan welke normen en waarden moest jij voldoen om erbij te horen? Wat zou er gebeuren als jij dat niet deed? Naar wie zou jij je nu schuldig voelen als jij niet langer zou voldoen aan deze normen en waarden?</li></ul><p>Schaamte is een veel voorkomend thema in onze sessies Mannelijk Leiderschap vanuit het Hart. Het is de emotie die maakt dat vele mannen ervoor kiezen om het \'alleen te doen\', en daarmee bewust of onbewust de verbinding uit de weg gaan. Ze weten zich daar geen raad mee en nemen genoegen met minder dan er voor hen mogelijk is. Pas als ze in contact met andere mannen zien dat ze daarin niet de enige zijn, ervaren ze dat het ook anders kan.</p><p class="source-note">Bronnen: The Invisible Presence (Michael Gurian) &middot; To be a Man (Robert A. Masters) &middot; Perfect Love, Imperfect Relationships (John Welwood)</p>'
       },
       {
         title: '"Met welk verlangen ben je vanavond naar ons toe gekomen?"',
         intro: "Als jongetje had hij talloze keren uitgereikt naar zijn vader, maar keer-op-keer bleef hij met lege handen staan. Zijn verlangen veranderde in gemis. Zijn gemis veranderde in wanhoop.",
-        byline: "Gepubliceerd op: 01-10-2022 door Robin & Martijn",
-        body: '<p>Niet zo lang geleden kwam een man van in de dertig naar een van onze sessies op vrijdagavond. Het was de eerste keer dat hij naar een mannengroep zou komen. Zijn spanning was voelbaar. De eerste helft van de avond bleef hij wat op de achtergrond aanwezig.</p><p>Toen hij later het woord nam, vertelde hij hoe hij zich al zijn hele leven een beetje verdoofd had gevoeld. Eenzaam, nergens echt bij horen, nergens echt enthousiast over zijn.</p><p>"Met welk verlangen ben je vanavond naar ons toe gekomen?" De vraag ontroerde hem direct. Van achter zijn verlangen kwam meteen zijn gemis tevoorschijn. Als jongetje had hij talloze keren uitgereikt naar zijn ouders, maar keer-op-keer bleef hij met lege handen staan. Zijn verlangen veranderde in gemis. Zijn gemis veranderde in wanhoop. Zijn wanhoop veranderde in een diepe overtuiging dat nooit iemand meer in staat zal zijn om zijn behoeftes te vervullen.</p><p>Het is een beeld wat we vaak zien: mannen die als jongetje het basisvertrouwen in hun ouders zijn verloren. Op volwassen leeftijd manifesteert zich dat in (liefdes)relaties — de man die afstand houdt om niet gekwetst te worden, of juist de man die zich vastklamt uit angst voor verlies.</p><p>Wat deze man die avond ervoer is wat we keer op keer zien: dat uitreiking opnieuw mogelijk is. Dat andere mannen dat verlangen kunnen zien en erkennen. En dat daarin iets begint te helen.</p>'
+        byline: "Robin & Martijn",
+        body: '<p>Niet zo lang geleden kwam een man van in de dertig naar een van onze sessies op vrijdagavond. Vooraf had hij gemaild met de vraag of dit wat voor hem zou zijn. Het was de eerste keer dat hij naar een mannengroep zou komen. Eigenlijk wilde hij al veel langer, maar de stap om zich aan te melden had hij niet eerder gezet.</p><p>Op de vrijdagavond zelf kwam hij iets voor 19:00 uur binnen. Net zoals wij alle mannen begroeten met een hug, zo verwelkomde wij hem ook. Zijn spanning was voelbaar, het verwarde hem zichtbaar. De eerste helft van de avond bleef hij wat op de achtergrond aanwezig.</p><p>Toen hij later op de avond tijdens een deelronde het woord nam, vertelde hij hoe hij zich al zijn hele leven een beetje verdoofd had gevoeld. Eenzaam, nergens echt bij horen, nergens echt enthousiast over zijn. En ook nu wist hij niet wat hij wilde met zijn leven. Hij had een baan en een relatie en dat ging op zich wel oké, maar echt blij werd hij er niet van. Hij was ook nooit meer dan een paar jaar bij dezelfde werkgever of bij de dezelfde vrouw gebleven. Eigenlijk kon hij zich helemaal niet herinneren dat hij ooit ergens echt enthousiast over wat geweest.</p><p>"Met welk verlangen ben je vanavond naar ons toe gekomen?" De vraag ontroerde hem direct. Van achter zijn verlangen kwam meteen zijn gemis tevoorschijn. Het besef dat hij vanavond op een plek was aangekomen waar zíjn verlangen wordt gehoord, legde bloot hoe vaak hij dat ook heeft moeten missen. Als jongetje had hij talloze keren uitgereikt naar zijn ouders, maar keer-op-keer bleef hij met lege handen staan. Zijn verlangen veranderde in gemis. Zijn gemis veranderde in wanhoop. Zijn wanhoop veranderde in een diepe overtuiging dat nooit iemand meer in staat zal zijn om zijn behoeftes te vervullen. Het heeft geen zin, het helpt toch niet. Eigenlijk had deze man het leven al opgegeven, teruggetrokken in stil verdriet. In de groep weerklonk de echo van een onderbroken uitreiking van een klein jongetje naar zijn ouders toe.</p><p>Het is een beeld wat we vaak zien: mannen die als jongetje het basisvertrouwen in hun ouders &mdash; en later in andere volwassenen &mdash; zijn verloren dat zij er voor hem zullen zijn zoals hij dat nodig heeft. Op volwassen leeftijd, vaak in (liefdes)relaties, manifesteert zich dat op een van de volgende manieren:</p><ul><li>De man die er bang voor is om gesmoord te worden. Hij houdt zijn behoeftes en verlangens voor zichzelf. Hij houdt afstand door een starheid in zijn beschikbaarheid. Hij heeft het gevoel dat als hij anderen te dichtbij laat, hij verstrikt raakt in de netten van de ander. Veelal is hij opgegroeid in een gezin met afwezige vader en een over-aanwezige moeder, in wiens netten hij toen verstrikt raakte.</li><li>De man die nooit heeft geleerd wie hij wel en niet kan vertrouwen, omdat zijn ouders voor hem zowel een bron van liefde als een bron van angst waren. Hij is angstig geworden voor de nabijheid van een ander en onzeker over zichzelf. Veelal is hij opgegroeid in een gezin waarbij de interactie met zijn ouders onvoorspelbaar, incoherent en soms gevaarlijk was.</li><li>De man die geleerd heeft om het alleen te doen, omdat hij geen steun kreeg van zijn ouders toen hij dat echt nodig had. Als kind leerde hij te focussen op de behoeftes van zijn ouders. Zijn behoeftes deden er immers niet toe. Als volwassene is hij sensitief voor de behoeften van anderen, maar kan slecht contact maken met wat hij zélf wil. Ondertussen blijft hij zijn hele leven worstelen met een gevoel van tekort.</li></ul><p>Stuk voor stuk zien we dat deze mannen een familiegeschiedenis hebben met onverwerkt verlies en tekort. Ouders of grootouders die het slecht hadden vanwege hun leefsituatie, bijvoorbeeld door oorlog, werkeloosheid of geldgebrek. Ouder of grootouders die een groot verdriet hadden, bijvoorbeeld om te jong overleden familieleden. Als jongetje troffen ze daardoor een vader of moeder aan die &mdash; door hun onafgeronde rouw &mdash; niet werkelijk beschikbaar waren, ook al leek dat wel zo. Het was alsof ze telkens naar de verkeerde uitreikte.</p><p>In onze sessies Mannelijk Leiderschap vanuit het Hart werken we daarom veel met de diepe behoefte aan veilige nabijheid. Van daaruit ontstaat er ruimte voor het rouwproces en erkenning voor het tekort wat er ooit was.</p><p>Een man die voelt dat het veilig is om zijn behoeftes te uiten, komt ook in contact met zijn natuurlijke agressie. Er ontstaat ruimte voor de boosheid over wat hij vroeger heeft moeten missen, maar bovenal ontstaat er ruimte om te gaan staan voor wat hij werkelijk wilt. Zo bang als hij ooit was om zijn gevoelens te uiten, is het een openbaring voor hem dat de groep hem juist wilt zien om wie hij nu werkelijk is.</p><p class="source-note">Bronnen: De Maskermaker (Wibe Veenbaas, Joke Goudswaard, Henne Arnolt Verschuren) &middot; The Invisible Presence (Michael Gurian) &middot; To be a Man (Robert A. Masters)</p>'
       },
       {
-        title: "Mannelijkheid is destructief",
-        intro: "Niet mannelijkheid zelf is het probleem — maar de manier waarop we haar hebben ingekapseld in een pantser van onaantastbaarheid, harde prestaties en emotionele afwezigheid.",
+        title: "Mannelijkheid is destructief, vrouwelijkheid is constructief",
+        intro: "Er ontvouwde zich een beeld van een man die in de veroordeling van zijn vaders agressie een diepe afkeur van zijn eigen mannelijke kracht had ontwikkeld. Als kleine jongen wilde hij de rol vervullen van de man die zijn vader niet was, in ruil voor de onvoorwaardelijke liefde van zijn moeder.",
         byline: "Robin & Martijn",
-        body: '<p>Als iemand zegt dat mannelijkheid destructief is, wordt dat al snel verkeerd begrepen. Wij geloven niet dat mannelijkheid als zodanig iets is om van af te komen. Integendeel.</p><p>Maar er is wel een versie van mannelijkheid die veel schade aanricht. Die zegt: "Ik heb geen hulp nodig." Die zegt: "Ik voel niets." Die zegt: "Ik draag het alleen."</p><p>Dat pantser is niet aangeboren. Het is aangeleerd. Op het schoolplein, in de kleedkamer, aan de keukentafel. "Jongens huilen niet." "Doe niet zo moeilijk." "Wees een man."</p><h3>De prijs van het pantser</h3><p>Mannen sterven gemiddeld jaren eerder dan vrouwen. Ze plegen vaker zelfmoord. Ze dragen van alles met zich mee dat ze nooit hebben verwerkt — rouw, schaamte, verdriet, woede — en op een gegeven moment knalt dat eruit. In agressie, in alcohol, in afwezigheid.</p><p>Mannelijkheid hoeft niet destructief te zijn. Kracht kan naast kwetsbaarheid bestaan. Leiderschap kan gepaard gaan met openheid. Dat is het werk dat we doen in de groep: niet het afbreken van mannelijkheid, maar het uitbreiden ervan — het terugvinden van jezelf, volledig.</p>'
+        body: '<p>"Het lijkt wel alsof ik mensen niet in de ogen kan kijken zonder mezelf te verliezen. Soms lukt het wel, maar veel vaker niet. Ik kan me dan niet meer onderscheiden van andere mensen. Het is alsof dat bij mij automatisch zo gaat."</p><p>Een man van in de dertig vertelde in een van onze sessies hoe hij zich kan identificeren met het gevoelsleven van anderen. Zich er niet van bewust op het moment dat het gebeurt, maar achteraf realiseerde hij zich steeds dat hij zichzelf ergens had verloren.</p><p>Hij wilde vertellen over één ervaring waarbij het anders ging. Tijdens een bergtocht met een groep raakte een van de groepsleden ernstig gewond door een val. Er ontstond paniek en aanvankelijk nam niemand de leiding. Hij vertelde hoe hij een natuurlijke agressie voelde opkomen en de aansturing van de groep naar zich toe trok. Achteraf zeiden meerdere groepsleden tegen hem hoe fijn het was dat hij zo duidelijk opstond, de leiding nam en richting gaf aan dat wat er moest gebeuren. Die natuurlijke agressie kende hij niet. Vóór deze ervaring had hij het nog nooit meegemaakt en sindsdien ook niet meer. Maar het had een groot verlangen in hem aangewakkerd. Nog nooit had hij zich zó mannelijk gevoeld als toen zijn natuurlijke agressie het overnam. Met enige aarzeling vertelde hij dat de herinnering daaraan hem op een bepaalde manier zelfs seksueel kon opwinden.</p><p>Op onze vraag hoe agressie een rol speelt in zijn familiegeschiedenis, werd het stil. Z\'n adem stokte en hij keek een tijdje naar de grond. En toen begon hij te vertellen over zijn vader. Over hoe zijn vader vanuit het niets kon ontploffen, irrationeel woedend kon worden. Vooral verbaal, soms ook fysiek. Hij vertelde over hoe zijn vader vroeger veel weg was voor werk, maar dat er altijd een gespannen sfeer hing als zijn vader thuis kwam. En hij vertelde over zijn moeder. Over hoe zij zich emotioneel steeds meer terugtrok en de leemte steeds gedienstiger probeerde op te vullen. Hoe zijn moeder letterlijk klappen heeft opgevangen die voor hem waren bedoeld.</p><p>Er ontvouwde zich een beeld van een man die in de veroordeling van zijn vaders agressie een diepe afkeur van zijn eigen mannelijke kracht had gekregen. \'Mannelijkheid is destructief, vrouwelijkheid is constructief\' was zijn overtuiging geworden. Als kleine jongen wilde hij de rol vervullen van de man die zijn vader niet was, in ruil voor de onvoorwaardelijke liefde van zijn moeder. Als man heeft hij zich nu los te maken van zijn moeder en zichzelf te ontdekken.</p><p>Het verhaal van deze man staat niet op zichzelf. Regelmatig ontmoeten we mannen die vertellen over een emotioneel afwezige vader en hoe ze van hun moeder hebben geleerd over wat vrouwelijke liefde is. In het ideale geval leert een man in zijn pubertijd &mdash; tijdens de afscheiding van zijn moeder &mdash; waar de grens tussen het mannelijke en het vrouwelijke ligt. In de echte wereld groeien veel mannen helaas op in verwarring over waar de energie van hun moeder eindigt, over waar hun eigen mannelijke energie begint en hoe een eventuele geliefde daarbij past. Op volwassen leeftijd ontkomen ze er niet aan om een aantal thema\'s onder ogen te komen:</p><ul><li>In de aanpassing aan het sociaal aanvaardbare gedrag in zijn gezin van herkomst, heeft hij zijn woede over de situatie verborgen moeten houden. Als hij daar op latere leeftijd niet alsnog ruimte voor maakt, slaat die woede om in rancuneuze gedachten en wraakgevoelens.</li><li>In het verbergen van zijn woede ontstaat er doorgaans een andere, passievere vorm van agressie: zelfsabotage. Het is de enige macht die hij nog wél had in zijn gezin van herkomst. Als hij dan toch in de steek gelaten dreigt te worden, organiseert hij dat het tenminste op zijn eigen voorwaarden gebeurt.</li><li>Vanaf het moment dat mannen voor hun eigen verlangens en behoeftes kiezen, maken ze schuld. Mannen die van huis uit een dynamiek herkennen zoals hierboven beschreven, hebben jarenlang een last gedragen. Die last neerleggen gaat altijd gepaard met schuldgevoelens.</li><li>In een poging om controle te krijgen over het contact met anderen, zijn er ook mannen die veel gaan geven in de verwachting daar ook iets voor terug te krijgen. Er ontstaat dan een disbalans tussen geven en nemen, met als gevolg dat mannen zichzelf kwijt raken in het contact met anderen. Deze mannen hebben te leren dat ze vrijuit mogen ontvangen, zonder dat ze een tegenprestatie hoeven te leveren.</li></ul><p>Niet zelden zien we mannen die zichzelf als kind hebben opgeofferd in hun gezin van herkomst. In hun gezin of bij hun voorouders is er sprake van een groot lijden dat van generatie op generatie wordt doorgegeven.</p><p>In onze sessies Mannelijk Leiderschap vanuit het Hart werken we daarom veel met de erkenning van de last die deze mannen als klein jongetje op zich hebben genomen. Er wordt ruimte gemaakt voor de woede, de rouw en de behoefte aan gezonde afgrenzing. Als de diep weggestopte gevoelens daarover naar buiten komen, wordt ook het grotere perspectief zichtbaar. Het harde werken om het lijden van anderen te verzachten kan dan langzaamaan transformeren naar rust, dankbaarheid en authentiek contact met de andere mannen.</p><p class="source-note">Bronnen: De Maskermaker (Wibe Veenbaas, Joke Goudswaard, Henne Arnolt Verschuren) &middot; Symbiose &amp; autonomie (Franz Ruppert) &middot; The Invisible Presence (Michael Gurian) &middot; Afwezige vaders, verloren zonen (Guy Corneau)</p>'
       },
       {
         title: "Wat als je alles moet loslaten?",
-        intro: "Er zijn momenten in een leven waarop je niets anders kunt dan loslaten. Je baan, je relatie, je zelfbeeld. Wat doet dat met een man?",
+        intro: "Mannen kunnen zich vele jaren blijven vasthouden aan oude patronen. Totdat je beseft dat jouw angst voor het onbekende niet langer opweegt tegen jouw verlangen naar hernieuwde kracht.",
         byline: "Robin & Martijn",
-        body: '<p>Loslaten is misschien wel het moeilijkste wat er bestaat. Zeker voor mannen die gewend zijn om te sturen, te controleren, te zorgen dat dingen gaan zoals gepland.</p><p>En toch zijn er momenten waarop loslaten de enige weg vooruit is. Wanneer de situatie je dwingt om iets los te laten waarvan je dacht dat je het nooit kwijt zou willen: je baan, je relatie, je zelfbeeld, je gezondheid, iemand van wie je houdt.</p><h3>Rouw als doorgang</h3><p>Wat we in die momenten bij mannen zien, is dat ze hun best doen om het verlies te omzeilen. Ze gaan harder werken. Ze zoeken snel iets nieuws. Ze verdoven met activiteit, alcohol of afleiding.</p><p>Maar rouw is geen vijand. Het is een doorgang. Een bewijs van liefde voor wat was. En pas als je die doorgang durft te maken, kom je aan de andere kant uit met iets wat steviger is dan daarvoor. Loslaten betekent niet dat iets er niet toe deed — het maakt ruimte voor wat er komen gaat.</p>'
+        body: '<p>"Ik ben al m\'n hele leven opzoek en ik stelde iedereen de vraag hoe ik mijn leven moet leiden. Behalve aan de enige persoon die \'m echt kon beantwoorden: ikzelf."</p><p>Hij was voor het eerst bij een van onze sessies. Een man van halverwege de 40. Zijn stevige postuur, kale hoofd en gebruinde huid wekte een krachtige indruk. Toen hij begon met praten kwam als snel onzekerheid en onrust tevoorschijn. Een grote gebeurtenis in zijn leven maakte dat doorgaan op de oude voet geen optie meer was. Maar een \'nieuwe voet\' was er nog niet. Hij zat middenin een transitie en was zijn houvast kwijtgeraakt.</p><p>Vroeg of laat maakt iedereen &mdash; mannen én vrouwen &mdash; een transitiefase door in het leven. Bijvoorbeeld de geboorte van een kind, een huwelijk, een scheiding of afscheid moeten nemen van je ouders. Of je krijgt niet meer genoeg voldoening uit je werk, het gevoel bij je relatie is niet meer wat het ooit was, of je hebt een verlangen naar iets nieuws zonder precies te weten wat dat is.</p><p>Kortom: je bent zoekende. Maar waarnaar precies?</p><p>Vanuit je hoofd zoek je naar vastigheid, zekerheid, voorspelbaarheid. Dat is de bekende en meest veilige weg. Maar een stem van binnen dieper klinkt, wilt iets anders. Loskomen van patronen, hernieuwde kracht om te doen wat je echt leuk vindt, echte intimiteit en liefde beleven. Het is alsof je een strijd aan het voeren bent met een diepe innerlijke aandrang.</p><p>Dit soort fases confronteren je met wat werkelijk belangrijk is voor jou. Enerzijds voel je een verlangen naar iets, anderzijds ervaar je een gemis. Het confronteert je met de manieren die jij kiest om weg te bewegen van datgene wat het leven van jou vraagt, door bijvoorbeeld de volgende afleidingsmechanismen in te zetten:</p><ul><li>Jezelf volledig te focussen op werk/sport/sociale activiteiten/etc... omdat stilstaan oncomfortabel is;</li><li>Eindeloos te blijven piekeren, maar niet in beweging komen;</li><li>Echte verbinding met anderen uit de weg te gaan, omdat je ook niet echt met jezelf verbonden bent;</li><li>Continue op zoek te gaan naar afleiding, zodat je die ene stap steeds niet hoeft te zetten.</li></ul><p>Daar kun je vele jaren aan blijven vasthouden. Sterker nog: het wordt sociaal geaccepteerd dat je deze mechanismen inzet. Totdat je zelf beseft dat de energie die het kost om dat vol te houden, niet langer opweegt tegen het gemis dat daarachter schuil gaat. Dat jouw angst voor het onbekende niet langer opweegt tegen jouw verlangen naar hernieuwde kracht.</p><p>Pas als je dat beseft, begint een reis die zich alleen laat leiden door volledige overgave. Vragen als: Waar kom ik vandaan? Wat is de zin van mijn leven? Waar sta ik voor? Hoe gewond ben ik? Hoe kan ik worden genezen? Wat wordt mijn nalatenschap? &mdash; dienen zich aan en je hebt erop te vertrouwen dat het antwoord zich gaandeweg zal ontvouwen.</p><p>In onze sessies Mannelijk Leiderschap vanuit het Hart werkten we met deze man rondom de vraag wie hij is als alles om hem heen wegvalt. Daar ontstond ruimte voor de angst, het verdriet en de boosheid die hij al jaren wegdrukte met zijn afleidingsmechanismen. In de bedding van de groep mannen kon hij zich daar helemaal in laten gaan, om vervolgens te ervaren hoe volstrekt normaal zijn angst, verdriet en boosheid eigenlijk zijn.</p><p>De sessies Mannelijk Leiderschap vanuit het Hart organiseren we vanuit onze missie om mannen te ondersteunen om hun kracht en kwetsbaarheid met elkaar te verbinden en ze te gidsen langs alle emoties die ze daarbij tegenkomen. Het is namelijk niet dat mannen geen gevoel hebben. De waarheid is dat mannen vaak nog geen plek hebben gevonden waar ze kúnnen voelen.</p><p class="source-note">Bronnen: De Donkere Nachten van de Ziel (Thomas Moore) &middot; The Invisible Presence (Michael Gurian) &middot; Afwezige vaders, verloren zonen (Guy Corneau)</p>'
       },
       {
         title: "\"Mijn opa was niet zo\'n lieve man\"",
-        intro: "Hoe patronen van generatie op generatie worden doorgegeven — en hoe je als man kunt doorbreken wat je meegekregen hebt, zonder je voorouders te veroordelen.",
+        intro: "En ook al werd er nooit meer gesproken over wat er in de oorlog was gebeurd, zodra de spanning thuis opliep en hij weer een klap opving, was de oorlog thuis vol aanwezig.",
         byline: "Robin & Martijn",
-        body: "<p>\"Mijn opa was niet zo'n lieve man.\" Het is een zin die wij regelmatig horen in de groep. Soms met een korte stilte erna. Soms met een lach die niet helemaal klopt.</p><p>Achter die zin gaat vaak een heel verhaal schuil. Een vader die ook niet zo lief was. Een opvoeding waarin weinig ruimte was voor zachtheid en kwetsbaarheid. En een man die nu zelf vader is — en merkt dat hij patronen herhaalt die hij eigenlijk niet wil herhalen.</p><h3>Wat je meekrijgt zonder het te weten</h3><p>Veel van wat we doen, doen we niet bewust. We reageren zoals onze vaders reageerden. We sluiten ons af zoals zij zich afsloten. Dat zijn geen karakterfouten — het zijn overlevingsstrategieën die generaties lang zijn doorgegeven.</p><p>Het goede nieuws: patronen die zijn aangeleerd, kunnen ook worden afgeleerd. Niet door je voorouders te veroordelen, maar door te begrijpen wat zij hebben meegemaakt. Dankbaar zijn voor hoe zij je hebben gevormd — en vervolgens bewust kiezen wat je wilt doorgeven. Dat is misschien wel het moedigste wat een man kan doen: de keten doorbreken.</p>"
+        body: "<p>\"Wat heeft je vader meegemaakt?\"</p><p>Het is een vraag die we regelmatig stellen. Als antwoord op deze vraag komt er niet zelden een heftig verhaal tevoorschijn, vaak nog niet eerder verteld.</p><p>We stellen de vraag steeds weer aan mannen die vastlopen om redenen die ze zelf niet begrijpen. Ze zijn bekend met gevoelens als schuld, schaamte, angst en woede. Of ze worstelen met gevoelens van zinloosheid, leegte, onvrede en energiegebrek. Ogenschijnlijk leiden ze echter een zorgeloos leven en vertellen ze over een prima jeugd.</p><p>Maar van binnen klopt er voor hun gevoel iets niet.</p><p>Mannen die antwoord geven op de vraag \"Wat heeft je vader meegemaakt?\" vertellen altijd over een ingrijpende gebeurtenis in hun voorgeschiedenis: (zelf)moord, verraad, abortus, een oorlogsverhaal. Gebeurtenissen die niet of nauwelijks zijn verwerkt door hun (voor)ouders.</p><h3>De woede-uitbarstingen van opa</h3><p>Zo begon een man van begin 30 te vertellen over zijn grootvader. In de 2e Wereldoorlog was zijn grootvader \'fout\' geweest: lid geweest van de NSB, diverse bestuurlijke functies gehad en na de oorlog een aantal jaar vast gezeten in een interneringskamp. Na zijn vrijlating werd er met geen woord meer gesproken over wat er was gebeurd. Het oorlogsverleden werd verzwegen.</p><p>De man van begin 30 had van zijn eigen vader wel verhalen gehoord over vroeger. Zijn vader had verteld over zijn eigen jeugd in de jaren \'60 en \'70, over de spanningen thuis en over de plotse woede-uitbarstingen van zijn grootvader. In zijn vaders gezin van herkomst was het devies \"niet klagen maar dragen\". En ook al werd er nooit meer gesproken over wat er in de oorlog was gebeurd, zodra de spanning thuis opliep en hij weer een klap opving, was de oorlog thuis vol aanwezig.</p><p>Zijn vader had het tegenovergestelde gedaan. De man van begin 30 vertelde hoe hij thuis niks tekort was gekomen en nooit was geslagen. Maar het was alsof zijn vader, die het zó radicaal anders aanpakte, vooral bezig was met de verwerking van zijn eigen trauma. En nu zat deze man bij ons omdat hij niet wist hoe hij zich moest hechten, omdat hij alsmaar opzoek was naar bevestiging, en zijn eigen verlangens onvoldoende of niet kon uiten.</p><h3>Meegezogen in de geschiedenis</h3><p>Mensen die te maken hebben met intergenerationeel trauma zijn zich daar vaak helemaal niet van bewust. Maar als jong kind van een vader die bezig was met wat er vooral níet mocht gebeuren, waren de behoeften van de man van begin 30 uit beeld geraakt. Zijn vaders trauma stond onbewust te veel voorop, waardoor deze man van jongs af aan werd meegezogen in de geschiedenis en herinnering van zijn grootouders.</p><p>Onverwerkte trauma\u2019s blijven opduiken in volgende generaties, net zolang tot ze worden verwerkt. Wie de link met een familietrauma ontkent, laat een nalatenschap van onverwerkte emoties achter voor zijn kinderen. Door het oorspronkelijke trauma onder ogen te komen, kun je onderzoeken hoe het een rol speelt in je leven. Door het familietrauma onder ogen te zien, zul je merken dat de onbestemde emoties afnemen. Die emoties hoeven zich namelijk niet meer zo sterk te manifesteren, omdat het oorspronkelijke trauma eindelijk een plek heeft gekregen.</p><h3>Stuwmeer van emoties</h3><p>Met de man van begin 30 werkten we in een opstelling met het \'onverwerkte trauma\' en de angst, woede en verdriet die hierachter schuil gingen. Het patroon van onbewust ontkennen van het trauma werd blootgelegd en onbegrepen herinneringen vielen voor hem als puzzelstukken in elkaar.</p><p>Daar ontstond voor deze man ook ruimte om z\'n emoties even volledig te laten gaan, om in de bedding van de groep mannen te ervaren wat een enorme opluchting dat voor hem was. Alsof ineens de druk was afgehaald van het stuwmeer waar zijn opa, zijn vader en hijzelf jarenlang hun emoties in hadden weggestopt.</p><p>De sessies Mannelijk Leiderschap vanuit het Hart organiseren we vanuit onze missie om mannen te ondersteunen om hun kracht en kwetsbaarheid met elkaar te verbinden en ze te gidsen langs alle emoties die ze daarbij tegenkomen. Het is namelijk niet dat mannen geen gevoel hebben. De waarheid is dat veel mannen nog geen plek hebben gevonden waar ze kúnnen voelen.</p><p class=\"source-note\">Bronnen &amp; inspiratie: J. Salberg &amp; S. Grand (eds.), Wounds of history (Routledge, 2017) &middot; M. Wolynn, It didn\u2019t start with you (Penguin Putnam, 2017) &middot; B. Dias &amp; K. Ressler, Parental olfactory experience influences behavior and neural structure in subsequent generations, Nature Neuroscience (2013) &middot; Liefde, lust en trauma (Franz Ruppert) &middot; Symbiose en autonomie (Franz Ruppert) &middot; Afwezige vaders, verloren zonen (Guy Corneau)</p>"
       },
       {
         title: '"Ik heb altijd geloofd dat ik een slecht kind was"',
-        intro: "Een van de meest pijnlijke overtuigingen die mannen met zich meedragen. Waar komt die overtuiging vandaan, en wat heb je nodig om hem los te laten?",
+        intro: "In onze sessies zien en spreken we mannen die worstelen met het thema vrijheid en expressie. Als ze praten over vroeger, dan vertellen ze over strenge en afstandelijke ouders die niet op een voedende manier op hun basisbehoeftes reageerden.",
         byline: "Robin & Martijn",
-        body: '<p>"Ik heb altijd geloofd dat ik een slecht kind was." Het is een zin die mannen zeggen met een soort van vanzelfsprekendheid, alsof het een vaststaand feit is. En toch: geen enkel kind is slecht.</p><p>Kinderen zijn kwetsbaar en afhankelijk, en snakken naar liefde en veiligheid. Als die er niet zijn op de juiste manier, zoekt een kind de fout bij zichzelf. Want dat is veiliger dan de fout bij de ouder te leggen, op wie hij volledig afhankelijk is.</p><h3>De overlevingsstrategie van zelfverwijt</h3><p>"Als ik slecht ben, dan kan ik mezelf verbeteren. Dan is er hoop." Dat is de logica van een kind dat zichzelf de schuld geeft van het tekort dat het ervaart.</p><p>Het probleem is dat die overtuiging meegaat — tot in de volwassenheid, in relaties, werk, vaderschap. Wat er nodig is, is terugkeren naar dat kind. Hem aankijken. En hem vertellen dat hij niet slecht was. Nooit slecht was. Gewoon een kind dat meer nodig had dan hij heeft gekregen.</p>'
+        body: '<p>"Ik heb altijd geloofd dat ik vroeger als kind inderdaad op hardhandige wijze gecorrigeerd moest worden. En weet je wat het raarste is: ik was mijn ouders nog dankbaar ook voor hun \'strenge doch rechtvaardige\' manier van opvoeden."</p><p>Halverwege de 20e eeuw ontstond er een kijk op de opvoeding van jonge kinderen die totaal anders was dan tegenwoordig: de vrije wil van het kind moest worden gebroken. Het draaide om afdwingen van gehoorzaamheid. En ging dat niet goedschiks, dan maar kwaadschiks.</p><p>Huilen was iets om af te leren en meegaand gedrag werd beloond. Als je als kind je gevoelens onder controle had, dan was dat een deugd. Aan jonge moeders werd geleerd om hun natuurlijke moedergevoelens te beheersen, daar kreeg je namelijk geen flinke kinderen van. Psychologe Alice Miller noemt het \'giftige pedagogiek\' in haar boek For Your Own Good.</p><p>Het kind moest leren begrijpen dat ouders altijd gelijk hebben en dat ouders altijd het laatste woord hebben. Op de behoeftes van het kind werd niet gereageerd, want het kind moest verharden om later in de maatschappij te kunnen functioneren.</p><h3>Wanneer zelfbeschikking een straf wordt</h3><p>In onze sessies zien en spreken we mannen die worstelen met het thema vrijheid en expressie. Als ze praten over vroeger, dan vertellen ze over strenge en afstandelijke ouders die niet op een voedende manier op hun basisbehoeftes reageerden.</p><p>Tegenwoordig is hun leven verworden tot een dans rondom zwaarte en \'moeten\'. Vaak weten ze niet anders dan dat het zo is, ze kennen het namelijk al van jongs af aan. Het is een vanzelfsprekendheid geworden.</p><p>Het zijn mannen die zich goed kunnen afstemmen op hun omgeving, maar moeite hebben met het innemen van hun eigen ruimte. Het lijkt wel alsof hun vrije expressie ooit van ze is afgepakt, hoewel onder hun meegaandheid een stil verzet zit...</p><h3>Wat vertrouwd voelt, hoeft nog niet betrouwbaar te zijn</h3><p>We zien vaak dat deze mannen hun pijn en gemis van vroeger \'veralgemeniseren\' en in hun hoofd allerlei analyses erop loslaten om hun pijn op een afstandje te houden. Als kind hebben ze alles in het werk gesteld om een verklaring te zoeken voor het feit dat er niet aan hun behoeftes tegemoet werd gekomen. Kenmerkend is dat ze hun ouders vrijspreken van alle verantwoordelijkheid.</p><p>Daar waar ze als kind ervan overtuigd zijn geraakt dat ze inderdaad lastig zijn, ontbreekt als volwassene een positief en realistisch zelfbeeld. En waar meisjes soms nog iets toevertrouwden aan hun dagboek of vriendinnen, slaat het bij jongens vaak om in existentiële schaamtegevoelens.</p><h3>Doorgaan tot het niet meer gaat</h3><p>Zowel in persoonlijke relaties als in zakelijke relaties weten deze mannen hoe het is om het \'uit te zitten\' en vol te houden, ook als ze het eigenlijk niet willen of niet meer kunnen. Maar de keuze voor henzelf is verbonden aan een existentiële schuld naar hun ouders toe. Ze hebben immers geleerd dat ouders altijd het laatste woord hebben.</p><p>In onze sessies vertellen ze doorgaans over de onduidelijke of verwarrende innerlijke signalen waarmee ze hun eigen, persoonlijke grenzen ervaren. Ze zijn gewend om te doen wat er van hen wordt gevraagd, zonder af te wegen wat dit voor hen betekent. Niet zelden zijn ze bekend met burn-out achtige verschijnselen.</p><h3>Eerst de woede, dan de ontspanning</h3><p>Vaak hebben ze vroeger zó\'n grote druk van het \'moeten\' ervaren, dat hun bewegingsruimte naar buiten toe in het gedrang is gekomen. Ze laten sociaal aanvaardbaar gedrag zien. Althans, het gedrag dat in hun gezin van herkomst als sociaal aanvaardbaar werd gezien. Onder dat gedrag gaan echter stevige woedegevoelens schuil. Dikwijls zijn de mannen waarmee we werken zich daar nauwelijks van bewust, onder meer omdat ze daarop schaamte ervaren.</p><p>In onze sessies werken we daarom met de fysieke bevrijding van woede-, rancune- en wraakgevoelens. Het is een van de expressievormen die vroeger is afgepakt én het is een oefening in het leren uitspreken van wat er op het hart ligt. Pas nadat de volumeknop van de woede volledig is opengedraaid, keert bij deze mannen het gevoel van ontspanning, rust en zelfbeschikking terug.</p><p>De sessies Mannelijk Leiderschap vanuit het Hart organiseren we vanuit onze missie om mannen te ondersteunen om hun kracht en kwetsbaarheid met elkaar te verbinden en ze te gidsen langs alle emoties die ze daarbij tegenkomen. Het is namelijk niet dat mannen geen gevoel hebben. De waarheid is dat veel mannen nog geen plek hebben gevonden waar ze kúnnen voelen.</p><p class="source-note">Bronnen &amp; inspiratie: Het Bevuilde Nest (José Al) &middot; Nestgeuren (Piet Weisfelt) &middot; De Maskermaker (Wibe Veenbaas, Joke Goudswaard, Henne Arnolt Verschuren) &middot; For Your Own Good (Alice Miller)</p>'
       },
       {
         title: "Als man betekenis aan emoties geven",
-        intro: "Mannen zijn er zelden in getraind om emoties te benoemen, laat staan te begrijpen. Wat als je leert luisteren naar wat je voelt — niet als zwakte, maar als informatie?",
+        intro: "Jonge kinderen moeten hun emoties nog leren te herkennen door interactie met hun ouders in de context van een veilige gehechtheidsrelatie. Maar wat nou als je die ervaring vroeger niet hebt gehad of als onveilig hebt ervaren?",
         byline: "Robin & Martijn",
-        body: '<p>Emoties zijn informatie. Ze vertellen je iets over wat er in je leeft, over wat je nodig hebt, over waar een grens is overschreden. Maar de meeste mannen zijn nooit geleerd om die informatie te lezen.</p><p>In plaats daarvan kregen ze te horen dat emoties storend zijn. Dat je ze opzij moet zetten en door moet gaan. En dus doen ze dat — tot het niet meer gaat.</p><h3>Emoties als kompas</h3><p>Wat als je emoties niet ziet als iets wat je in de weg zit, maar als een kompas? Boosheid vertelt je dat er een grens is overschreden. Verdriet vertelt je dat er iets verloren is gegaan wat je dierbaar was. Angst vertelt je dat er iets op het spel staat wat ertoe doet.</p><p>Die emoties hoef je niet op te lossen. Je hoeft ze alleen maar te begrijpen. En dat begint met stoppen, voelen, en de vraag stellen: wat vertelt dit mij?</p><p>In onze groepen leren mannen precies dat. Niet om te zwelgen in gevoel, maar om het te gebruiken als informatie, als richting, als fundament voor betere keuzes en diepere relaties.</p>'
+        body: '<p>Hoewel veel mensen zich weinig tot niks kunnen herinneren van hun eerste levensjaren, zijn de gebeurtenissen in deze periode essentieel voor de rest van onze ontwikkeling. De ervaringen die we opdoen als baby en de levenslessen die we daaruit trekken, vormen de basis voor onze persoonlijkheid en voor persoonlijkheidsproblemen.</p><p>De relatie met moeder en vader speelt de belangrijkste rol. Binnen deze context leren jonge kinderen hoe ze zichzelf, anderen en de wereld kunnen waarnemen. Een gezonde en goed afgestemde relatie met de ouders leidt tot belichaming: "Dit ben ik, dit is mijn lijf, dit zijn mijn emoties én ze mogen er zijn". Maar wat nou als je die ervaring vroeger niet hebt gehad of als onveilig hebt ervaren?</p><h3>Spiegeling door je ouders</h3><p>Jonge kinderen leren spelenderwijs hun emoties te herkennen door interactie met hun ouders in de context van een veilige gehechtheidsrelatie. In een gezonde situatie is er sprake van een congruente en afgestemde spiegeling van emoties door de ouders.</p><p>Ouders die daar niet toe in staat zijn &mdash; om wat voor reden dan ook &mdash; geven hun kinderen ofwel geen spiegeling, ofwel een ongemarkeerde spiegeling. De verschillende vormen van spiegeling kenmerken zich als volgt:</p><ul><li>Afgestemde, gezonde spiegeling: als het kind emoties beleeft, is er sprake van medeleven en compassie vanuit de ouders. De emoties van het kind mogen er in alle volheid zijn. De ouders bieden troost wanneer het kind dat nodig heeft;</li><li>Geen spiegeling: emoties van het kind worden onvoldoende opgemerkt, emoties worden afgekeurd of emoties worden actief onderdrukt ("nu ophouden met huilen anders wordt mama boos" of "stel je niet zo aan, je bent nu een grote jongen");</li><li>Ongemarkeerde spiegeling: er is geen afbakening tussen de emoties van het kind en de emoties van de ouders. De ouders laten medelijden zien in plaats van medeleven. De ouders maken onvoldoende onderscheid tussen hun eigen gevoel en het gevoel van het kind.</li></ul><h3>Gevolgen van het ontbreken van een afgestemde, gezonde spiegeling</h3><p>Op latere leeftijd leidt het ontbreken van een afgestemde, gezonde spiegeling tot vraagstukken en patronen die we veel tegenkomen in onze mannengroepen:</p><ul><li>Hoe hoort de liefde eigenlijk? Je hebt namelijk niet geleerd hoe gezonde liefde voelt en niet de liefde ervaren die je als kind nodig had. Dit is later vaak terug te zien in een vorm van verlatingsangst of bindingsangst.</li><li>Kwetsbaarheid laten zien, hoe doe ik dat? Als je op volwassen leeftijd de verwachting hebt dat de ander jou net zo spiegelt als dat jouw ouders dat vroeger deden, dan kan het buitengewoon onveilig voelen om met je emoties tevoorschijn te komen.</li><li>Grenzen aangeven, hoe werkt dat? Alles altijd perfect willen doen zorgt voor stress. Je neemt veel hooi op je vork, maar je moet ondertussen ook omgaan met het stemmetje in je hoofd dat zegt dat je niet goed genoeg bent.</li><li>Zelfvertrouwen, ik? Als je niet hebt geleerd dat je iemand bent die liefde en aandacht verdient, ontstaat onzekerheid op verschillende vlakken. Ook denk je dat je er pas mag zijn als je voldoet aan een denkbeeldig perfect plaatje. Kortom: je maakt jezelf kleiner dan je werkelijk bent.</li></ul><h3>Identiteitsvorming op latere leeftijd</h3><p>Als je op latere leeftijd &mdash; wijzer geworden door levenservaring &mdash; erachter komt dat je voor jezelf nog een ontwikkeling hebt door te maken, heb je ook onder ogen te zien welke onbewuste en impliciete boodschappen je vroeger als kind hebt ontvangen van jouw ouders. Met therapie kun je op een gestructureerde manier in kaart brengen welke sleutelervaringen hieraan ten grondslag lagen.</p><p>Maar jouw eigen gevoelens daarover toelaten en onder ogen zien is niet genoeg: tegenover het vroegere gebrek aan gezonde spiegeling heb je op latere leeftijd gezonde \'inhaalervaringen\' te zetten: ervaringen waarmee je alsnog oefent en leert hoe je op een constructieve manier kunt omgaan met de emoties die in jou leven.</p><h3>Gezonde spiegeling in een mannengroep</h3><p>In onze mannengroepen werken we daarom voortdurend met spiegeling door andere mannen. De andere mannen zijn niet alleen getuige van jouw verhaal, maar je leert ook hoe het voelt om een gezonde reactie van andere mannen te ontvangen op jouw heftigste emoties.</p><p>Binnen de veilige setting van een mannengroep kunnen verdriet, boosheid, angst én blijheid er in al hun volheid zijn en kun je rekenen op een compassievolle aanwezigheid van andere mannen.</p><p>En ook al is het herstellen van een vroegere ongezonde spiegeling geen makkelijke weg, het is niet onmogelijk en zeer de moeite waard. Door jouw gevoelens daarover toe te laten kun je er op een andere en authentieke manier voor gaan zorgen, waardoor je een stevige basis in jezelf vindt.</p><p class="source-note">Bronnen &amp; inspiratie: Gergely, G. &amp; Watson, J. S. (1996), The Social Biofeedback Theory Of Parental Affect-Mirroring, International Journal of Psychoanalysis &middot; Wallin, David J. (2007), Attachment in Psychotherapy &middot; Buren-Molenaar, M. van (2021), Precies, daarom &mdash; over narcisme en symbiose</p>'
       },
       {
-        title: "De keuze tussen expressie of depressie",
-        intro: "Wat er niet naar buiten komt, keert naar binnen. Onderdrukte emoties hebben een prijs. De keuze om je te uiten is niet soft — het is overleven.",
+        title: "Je hebt de keuze tussen expressie of depressie",
+        intro: "Vanuit traditionele rolpatronen, gebrek aan emotionele educatie of angst voor stigmatisering voelen veel mannen zich beperkt in hun vermogen om hun gevoelens te uiten. Daarom is het belangrijk dat mannen een vorm van expressie vinden die het beste bij hen past.",
         byline: "Robin & Martijn",
-        body: '<p>Er is een gezegde dat we graag gebruiken in onze groepen: expressie of depressie. Wat je niet uitdrukt, druk je in. En wat je ingedrukt houdt lang genoeg, begint vroeg of laat te drukken op alles wat je bent.</p><p>Depressie bij mannen ziet er vaak anders uit dan we denken. Het is niet altijd de man die niet uit bed komt. Vaker is het de man die keihard werkt maar nergens van geniet. Die prikkelbaar is maar niet weet waarom. Die thuis is, maar er niet echt is.</p><h3>Wat er niet uitkomt, keert terug</h3><p>Emoties zijn energie. Ze willen bewegen. Ze willen worden uitgedrukt — in woorden, in beweging, in tranen, in woede die op de juiste plek mag landen. Als dat niet gebeurt, zoeken ze een andere uitweg: slapeloosheid, rugpijn, drank, afstand.</p><p>Expressie is geen luxe. Het is basisonderhoud. Net zoals je je lichaam voedt en beweegt, heeft je innerlijk leven ook onderhoud nodig. Ruimte. Aandacht. Een plek om te zijn.</p>'
+        body: '<p>In een wereld waar stereotypen overheersen, hebben mannen vaak het gevoel dat ze hun emoties moeten onderdrukken. Ze worden aangemoedigd om onverstoorbaar te zijn, terwijl het uiten van emoties te vaak als zwakte wordt gezien.</p><p>Maar laten we eens stilstaan bij een belangrijk besef: het ervaren en uiten van emoties is noodzakelijk om onszelf te bevrijden van emotionele lasten, ons emotionele bewustzijn te vergroten, veerkracht op te bouwen én om gezondere relaties op te bouwen.</p><p>In de mannengroepen die wij faciliteren ontmoeten we regelmatig mannen die worstelen met langdurig onderdrukte emoties. Voor hen is het vaak zo normaal geworden om hun emoties in te slikken, dat ze ook niet meer weten hoe ze er op een gezonde manier uiting aan kunnen geven. In dit artikel gaan we daarom in op de gevolgen van het niet uiten van emoties, evenals de voordelen van het wel uiten ervan.</p><h3>Het niet uiten van emoties: de keuze voor depressie</h3><p>Als mannen dragen we vaak de last van verwachtingen en stereotypen die van invloed kunnen zijn op onze emotionele expressie. Maar waar leidt het toe als we onze emoties voor onszelf houden? Een paar voorbeelden:</p><ul><li>Mentale gezondheidsproblemen: het langdurig onderdrukken van emoties kan leiden tot depressieve gevoelens en andere mentale gezondheidsproblemen. Het negeren van onze emoties kan een zware tol eisen op ons algehele geestelijke welzijn.</li><li>Opgekropte spanning: wanneer we onze emoties onderdrukken, stapelen ze zich op als een tijdbom in ons eigen lijf. Deze opgebouwde spanning kan leiden tot chronische stress en lichamelijke reacties zoals hoofdpijn, spierspanning en andere fysieke problemen.</li><li>Emotionele afstandelijkheid: het niet uiten van emoties kan leiden tot een gevoel van emotionele afstandelijkheid, zowel ten opzichte van onszelf als van anderen. Het kan onze relaties belemmeren en ons gevoel van verbondenheid met dierbaren verminderen.</li><li>Negatief zelfbeeld: het onderdrukken van emoties kan ook leiden tot een negatief zelfbeeld. We kunnen onszelf gaan bekritiseren en veroordelen voor het niet kunnen omgaan met onze gevoelens, waardoor onze eigenwaarde wordt aangetast.</li></ul><h3>De kracht van expressie: authenticiteit en autonomie</h3><p>Vanuit traditionele rolpatronen, gebrek aan emotionele educatie of angst voor stigmatisering voelen veel mannen zich beperkt in hun vermogen om hun gevoelens te uiten. Daarom is het belangrijk dat mannen een vorm van expressie vinden die het beste bij hen past.</p><p>Voor sommigen kan praten met vertrouwde vrienden of familieleden een bevrijdende uitlaatklep zijn. Anderen geven er misschien de voorkeur aan om hun emoties op creatieve wijze te uiten, zoals schrijven, schilderen of muziek maken. Fysieke activiteiten zoals sporten, yoga of meditatie kunnen helpen om emoties te kanaliseren.</p><p>Het belangrijkste is dat mannen de ruimte en vrijheid krijgen om hun eigen en unieke manier van emotionele expressie te ontdekken. Voor elke man is dat anders. Het kan een uitdagend proces zijn, maar ook enorm waardevol voor ons emotionele welzijn en onze persoonlijke groei:</p><ul><li>Emotionele bevrijding: oude emoties die niet tot uitdrukking zijn gebracht of zijn verwerkt, kunnen zich opstapelen en een last vormen in ons leven. Door ze te uiten, kunnen we een gevoel van opluchting en bevrijding ervaren.</li><li>Heling van traumatische ervaringen: oude emoties kunnen verbonden zijn met traumatische ervaringen uit het verleden. Het uiten van deze emoties kan een belangrijk onderdeel zijn van het helingsproces.</li><li>Verbeterde relaties: oude emoties kunnen onze huidige relaties beïnvloeden. Wanneer we oude emotionele bagage met ons meedragen, kan dit onze communicatie, verbinding en intimiteit met anderen belemmeren. Het uiten van oude emoties stelt ons in staat om open te staan voor diepgaandere relaties.</li><li>Versterkte emotionele veerkracht: door oude emoties uit te drukken en te verwerken, ontwikkelen we vaardigheden om met toekomstige uitdagingen en stressvolle situaties om te gaan. Dit verhoogt onze veerkracht en ons vermogen om met het leven om te gaan.</li></ul><h3>Expressie in een mannengroep</h3><p>Door deel te nemen aan een mannengroep kunnen mannen een dieper begrip krijgen van hun emoties en hoe ze deze kunnen uiten op een manier die voor hen goed werkt. Ze leren om te luisteren naar hun innerlijke stem en naar hun eigen behoeften. Ze kunnen hun verhaal delen, zonder angst voor oordeel of veroordeling. Door naar elkaars ervaringen te luisteren, kunnen ze zich realiseren dat ze niet alleen zijn in hun emotionele reis.</p><p>Het proces van het verwerken van oude emoties en het ontdekken van hun eigen unieke manier van emoties uiten kan mannen helpen om emotionele blokkades los te laten, hun relaties te verbeteren en een meer vervuld leven te leiden. Zo leren ze dat het tonen van emoties geen teken van zwakte is, maar juist een teken van moed en kracht.</p><p class="source-note">Bronnen &amp; inspiratie: Traumasporen (Bessel van der Kolk) &middot; Dansend in Moeders Spiegel (Michael Gurian) &middot; Precies, daarom &mdash; over narcisme en symbiose (M. van Buren-Molenaar)</p>'
       },
       {
         title: "Afwijzen zodat je niet wordt afgewezen",
-        intro: "Zelf de deur dichtgooien voordat een ander hem dicht kan gooien. Een beschermingsmechanisme dat mannen onbewust gebruiken — en dat hen eenzaam maakt.",
+        intro: "Onderliggend aan de angst om afgewezen te worden, schuilt een angst voor het leven zelf. Het patroon is kenmerkend voor mensen met heftige vroegkinderlijke ervaringen: zichzelf ervan weerhouden om deel te nemen aan het leven, omdat ze ervan overtuigd zijn dat de wereld onveilig is.",
         byline: "Robin & Martijn",
-        body: '<p>Het is een patroon dat we keer op keer zien. Een man die anderen op afstand houdt. Die vlak voor het echt close wordt, toch weer wat terugstapt. Die relaties saboteert net op het moment dat ze echt diep zouden kunnen gaan.</p><p>Afwijzen zodat je niet wordt afgewezen. Het klinkt paradoxaal, maar het is een van de meest menselijke beschermingsmechanismen die er bestaat.</p><h3>De wortels van zelf-bescherming</h3><p>Ergens in zijn verleden heeft deze man geleerd dat hechting pijnlijk is. Dat als je je openstelt voor iemand, je ook kwetsbaar bent voor verlies. En dus koos hij ervoor om zelf te gaan voor iemand anders kon gaan. Het gaf hem een gevoel van controle.</p><p>Het probleem: het werkt. Maar de prijs is hoog. Want het houdt niet alleen pijn buiten — het houdt ook verbinding, liefde en echte intimiteit buiten. In de groep durven mannen dit patroon te bekijken. En ze ontdekken dat dichterbij komen mogelijk is — ook al voelt dat angstaanjagend.</p>'
+        body: '<p>Een paradox die we regelmatig tegenkomen in ons werk met mannen, zijn mannen die zichzelf afwijzen om de pijn van afwijzing door anderen te vermijden. Zichzelf verlaten zodat ze niet worden verlaten. Zichzelf tekortdoen zodat ze niet tekort worden gedaan door anderen.</p><p>Het op die manier vermijden van afwijzing kan een defensieve strategie lijken om emotionele pijn te vermijden, maar tegelijkertijd leidt het tot eenzaamheid en een gebrek aan echte verbinding met anderen. Het is alsof ze een muur om zichzelf heen bouwen om zichzelf te beschermen, maar uiteindelijk isoleren ze zichzelf van de wereld om hen heen.</p><h3>Oorsprong van de angst</h3><p>Onderliggend aan de angst om afgewezen te worden, schuilt een diepere angst voor het leven zelf. Het patroon is kenmerkend voor mensen met heftige vroegkinderlijke ervaringen: zichzelf ervan weerhouden om volledig deel te nemen aan het leven, omdat ze de overtuiging hebben dat de wereld onveilig is.</p><p>Mensen met deze overtuigingen hebben vaak op jonge leeftijd ervaringen gehad die hen het gevoel hebben gegeven dat ze niet welkom waren in deze wereld. Daarin komen wij regelmatig concrete voorbeelden tegen als we vragen naar wat mannen als kind hebben meegemaakt:</p><ul><li>Een zware geboorte, soms met medische complicaties.</li><li>Direct na de geboorte langere tijd in een couveuse gelegen en weinig nabijheid van moeder ervaren.</li><li>Een moeder met postnatale depressie (emotionele afwezigheid).</li><li>Onveilige thuissituatie waarbij ze als jong kind niet terecht konden bij hun verzorger(s).</li></ul><p>Kortom: een vroegkinderlijke ervaring waarbij de volledige symbiose met moeder en de meest basale en veilige hechting niet goed tot stand is gekomen.</p><p>Dit soort diepgewortelde ervaringen maakt dat ze op latere leeftijd eerder toeschouwer zijn van het leven dan deelnemer. Ze vermijden intieme relaties uit angst voor wat er kan gebeuren als ze zichzelf openstellen voor het leven. Ze hebben een sterk verlangen om ergens anders te zijn, ook al kunnen ze niet precies vertellen waar dat dan is. Dit vertaalt zich vaak in een rusteloosheid en een moeite met lang op één plek te blijven. Mensen die bekend zijn met deze dynamiek, kunnen zich om die reden zomaar terugtrekken uit het contact.</p><h3>Verloren regie terugpakken...</h3><p>Het vertrekken uit contact en het vermijden van intieme verbindingen zijn een uiting van onvoldoende regie over het eigen leven. Het is ook een symptoom van een niet goed geïntegreerde eigenschap: écht op aarde komen, het welkom hier ervaren en zelf de regie hebben over het moment van weggaan én terugkomen.</p><p>Als het te spannend wordt, is het een logische reactie geworden om vanuit het lijf naar het hoofd te schieten. Het lichaam lijkt soms meer een ongelukkig aanhangsel dan een veilig thuis geworden.</p><p>Door middel van lichaamswerk, groepswerk, ademwerk en beweging kan iemand met deze dynamiek langzaamaan vertrouwder worden met het bewonen van het eigen lijf. Met oefening ontstaat er zo meer regie en autonomie. Daarmee ontstaat ook een opening om contact te maken met alle onverwerkte emoties die in het lijf zijn opgeslagen.</p><h3>…en de verborgen rouw doorleven</h3><p>Veelal zien we dat die emoties vroeger nooit zijn begrepen door de omgeving en zelfs niet zijn erkend door de rouwende zelf. Maar uiteindelijk moeten hier dezelfde processen, bewegingen en gevoelens worden doorlopen als elk ander rouwproces.</p><p>Er is echter één groot verschil: het gaat hierbij niet over rouw om iets wat is verloren, het gaat over rouw om iets dat er nooit is geweest.</p><p>In onze sessies werken we daarom met de erkenning van het vroegkinderlijke verdriet, angst en boosheid over tekort aan veilige hechting. Het is de erkenning die er vroeger nooit was, met als gevolg dat die emoties destijds ver zijn weggestopt. Het groepswerk met andere mannen vormt een krachtige bevestiging om het daadwerkelijk te mogen voelen, doorleven én verwerken. Pas daarna kan de volgende stap worden gezet, waarbij er steeds meer regie over het eigen leven kan worden gepakt.</p><p class="source-note">Bronnen &amp; inspiratie: Precies, daarom &mdash; over narcisme en symbiose (M. van Buren-Molenaar) &middot; Traumasporen (Bessel van der Kolk) &middot; De Maskermaker (W. Veenbaas, J. Goudswaard, H. Verschuren)</p>'
       },
       {
-        title: "Waarom we hunkeren naar erkenning",
-        intro: "Erkenning is een oerbehoefte. Maar wat doe je als je die als kind nauwelijks hebt gekregen? En hoe stop je met het zoeken ervan op plekken waar je hem niet vindt?",
+        title: "Waarom we hunkeren naar erkenning (en bereid zijn om daar veel voor op te geven)",
+        intro: "De zoektocht naar deze authentieke erkenning gaat over het stellen van de vraag: \"Ben ik het waard om mijn ware zelf te laten zien?\" Het vereist moed om authentiek te zijn in een wereld die prestaties vaak hoger waardeert dan eigenheid.",
         byline: "Robin & Martijn",
-        body: '<p>Erkenning is geen bijzaak. Het is een van de meest fundamentele behoeften van de mens. Gezien worden. Gehoord worden. Ertoe doen voor iemand anders.</p><p>Als kind heb je die erkenning nodig van je ouders. Als ze die geven — consistent, betrouwbaar, warm — groeit er een innerlijke zekerheid: ik ben oké zoals ik ben. Ik heb waarde.</p><h3>Als erkenning er niet was</h3><p>Maar wat als die erkenning er niet was? Dan groeit er een honger. Een leegte die je probeert te vullen met succes, met goedkeuring, met de bewondering van anderen. Je wacht op het moment dat eindelijk iemand zegt: "Goed gedaan. Je bent goed genoeg."</p><p>Maar die bevestiging van buiten vult de leegte niet. De erkenning die je nodig had, had je nodig als kind. Die schuld kan niemand anders inlossen.</p><h3>De weg naar binnen</h3><p>Wat wel helpt, is rouwen om wat er niet was. Het verlies onder ogen zien, in plaats van te blijven zoeken naar vervanging. En langzaam — in contact met anderen die dat herkennen — leren om jezelf de erkenning te geven die je al die tijd hebt gemist. In onze groepen lopen mannen die weg samen.</p>'
+        body: '<p>"Ben ik het waard om gezien te worden om wie ik werkelijk ben?"</p><p>Deze vraag raakt de kern van ons verlangen naar erkenning. Wanneer anderen ons erkennen om wie we zijn, om onze waarden en overtuigingen, voelen we ons gewaardeerd op een dieper niveau. Authentieke erkenning biedt een gevoel van eigenwaarde dat niet afhankelijk is van externe prestaties, maar geworteld is in ons ware zelf.</p><p>De zoektocht naar deze authentieke erkenning gaat over het stellen van de vraag: "Ben ik het waard om mijn ware zelf te laten zien?" Het vereist moed om authentiek te zijn in een wereld die prestaties vaak hoger waardeert dan eigenheid.</p><h3>Erkenning door prestaties: de externe maatstaf</h3><p>Aan de andere kant leidt de vraag "Ben ik het waard op basis van wat ik doe?" ons naar de wereld van externe erkenning. Deze erkenning is gebaseerd op prestaties en resultaten, het kan ons het gevoel geven dat we pas waardevol zijn als we resultaten leveren.</p><p>Deze vorm van erkenning brengt echter een risico met zich mee: het kan ons dwingen tot een constante staat van presteren, waarbij we ons continue afvragen of het wel genoeg is. Het kan leiden tot een zoektocht naar externe validatie, waardoor onze eigen innerlijke waarde in de schaduw komt te staan.</p><h3>Aanpassingen in de kindertijd</h3><p>Om erkenning te verkrijgen, leert iedereen al op jonge leeftijd bepaalde aanpassingen aan. Deze aanpassingen zijn strategieën die we als kind ontwikkelen om positieve reacties te krijgen van onze ouders, verzorgers en mensen om ons heen. Veelvoorkomende aanpassingen zijn bijvoorbeeld:</p><ul><li>Prestatiegerichtheid: we streven naar succes en prestaties als een manier om erkenning te krijgen. Dit kan zich manifesteren in academische prestaties, sportieve prestaties of andere gebieden waarop we kunnen uitblinken.</li><li>Aanpassen aan verwachtingen: we passen ons aan aan de verwachtingen van anderen om goedkeuring te ontvangen. Dit kan resulteren in het onderdrukken van onze ware zelf en het voldoen aan normen die niet noodzakelijk overeenkomen met wie we werkelijk zijn.</li><li>Zoektocht naar goedkeuring: we worden gevoelig voor de goedkeuring van anderen en ontwikkelen gedrag dat gericht is op het verkrijgen van positieve reacties. Dit kan leiden tot het vermijden van confrontaties of het altijd proberen te behagen.</li><li>Vermijden van afwijzing: we leren mechanismen aan om afwijzing te vermijden, vaak ten koste van onze eigen behoeften en verlangens. Dit kan leiden tot een patroon van vermijding van risico\'s.</li></ul><h3>De prijs van verlangen naar erkenning</h3><p>Het verlangen naar erkenning kan een hoge prijs hebben. Soms zijn we zo gefocust op het verkrijgen van goedkeuring van anderen dat we onze eigen behoeften en waarden negeren. We offeren authentieke zelfexpressie op en passen ons aan externe normen aan, wat uiteindelijk leidt tot een gevoel van leegte. Of nog erger: een gevoel van onvervuldheid, stress, uitputting en op langere termijn het risico op een burn-out.</p><p>Deze aanpassingen kunnen ook volwassen relaties beïnvloeden. In plaats van onze authentieke zelf te laten zien, kunnen we vasthouden aan aangeleerde patronen die zijn ontstaan in onze kindertijd. Veelal creëert dat enkel een gevoel van afstand en een gebrek aan verbinding.</p><h3>De zoektocht naar zelfwaardering</h3><p>Sommige mensen gaan steeds verder in hun zoektocht naar erkenning. De intense focus op externe validatie brengt hen paradoxaal genoeg juist het tegenovergestelde: ze raken nog verder verwijderd van zichzelf. Hun identiteit wordt steeds meer gebouwd op een fundament van datgene wat ze doen, in plaats van diegene die ze zijn.</p><p>Het leidt tot een cyclus van continue prestatiedruk en het verbergen van het ware zelf om aan verwachtingen te voldoen. Daarmee stoppen gaat niet zomaar: daardoor zou de basis onder hun identiteit wegvallen. De zoektocht die volgt is dan ook geen eenvoudige en kent vele verschillende routes richting zijn bestemming. Maar die zoektocht is het wel waard zodra de prijs die we betalen voor onze aangeleerde aanpassingen te hoog wordt.</p><p>Het wordt een zoektocht naar zelfbewustzijn en authentieke expressie die ons in staat stelt om ware erkenning te vinden, eerst bij onszelf en vervolgens in onze relaties met anderen. Het is in het loslaten van de behoefte aan externe goedkeuring dat we een dieper gevoel van eigenwaarde en voldoening kunnen ontdekken, en uiteindelijk de vraag "Ben ik het waard?" met een volmondig "ja" kunnen beantwoorden.</p><p class="source-note">Bronnen &amp; inspiratie: Precies, daarom &mdash; over narcisme en symbiose (M. van Buren-Molenaar) &middot; Transactionele Analyse &mdash; Het Handboek (I. Steward)</p>'
       }
     ];
   </script>
