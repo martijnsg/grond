@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Inschrijving Fundament.</title>
+<style>
+  :root {
+    --blue: #2E4A48;
+    --blue-dark: #1C2B2B;
+    --black: #0D0D0D;
+    --grey-dark: #1A1A1A;
+    --grey-mid: #555555;
+    --grey-light: #E8E8E8;
+    --grey-bg: #F5F5F5;
+    --white: #FFFFFF;
+    --cream: #F5F0E8;
+    --warm-mid: #E8E0D0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .top-bar {
+    padding: 1.75rem 4rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--grey-light);
+  }
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+  .logo-plus { color: var(--blue); font-size: 1.3rem; font-weight: 700; }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .eyebrow {
+    font-family: 'Space Mono', 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--black);
+  }
+  .intro {
+    font-size: 1.05rem;
+    color: var(--grey-mid);
+    max-width: 58ch;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    padding: 2.5rem;
+  }
+  .fieldset-label {
+    font-family: 'Space Mono', 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--grey-light);
+  }
+  .fieldset + .fieldset-label,
+  .field-group + .fieldset-label {
+    margin-top: 2.5rem;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .field { margin-bottom: 1rem; }
+  label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--grey-dark);
+    margin-bottom: 0.4rem;
+  }
+  label .optional {
+    font-weight: 400;
+    color: var(--grey-mid);
+    font-size: 0.75rem;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--grey-light);
+    background: var(--grey-bg);
+    color: var(--black);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  input:focus, textarea:focus {
+    border-color: var(--blue);
+    background: var(--white);
+  }
+  textarea { resize: vertical; }
+
+  .checks {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .check-row input[type="checkbox"] {
+    margin-top: 0.2rem;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--blue);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .check-row label {
+    font-size: 0.9rem;
+    color: var(--grey-dark);
+    font-weight: 400;
+    margin: 0;
+    cursor: pointer;
+  }
+  .check-row a { color: var(--blue); text-decoration: underline; }
+
+  .submit-btn {
+    margin-top: 2.5rem;
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 1.1rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .submit-btn:hover { background: var(--blue-dark); }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .note {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--grey-mid);
+    text-align: center;
+  }
+
+  #success, #error {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+  }
+  #success strong, #error strong { display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+  #error { color: #B23A2E; }
+
+  @media (max-width: 640px) {
+    .top-bar { padding: 1.25rem 1.5rem; }
+    .wrap { padding: 2.5rem 1.25rem 4rem; }
+    .card { padding: 1.5rem; }
+    .row { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <span class="logo"><span class="logo-plus">+</span>Fundament.</span>
+  </div>
+
+  <div class="wrap">
+    <p class="eyebrow">Definitieve inschrijving</p>
+    <h1>Schrijf je in voor Fundament.</h1>
+    <p class="intro">Fijn dat je de stap zet. Vul onderstaande gegevens in om je inschrijving definitief te maken. We nemen na ontvangst persoonlijk contact met je op ter bevestiging.</p>
+
+    <form class="card" id="signup-form">
+
+      <p class="fieldset-label">Persoonlijke gegevens</p>
+      <div class="row">
+        <div class="field">
+          <label for="s-name">Naam</label>
+          <input type="text" id="s-name" placeholder="Voor- en achternaam" required>
+        </div>
+        <div class="field">
+          <label for="s-phone">Telefoonnummer</label>
+          <input type="tel" id="s-phone" placeholder="06 - 12345678" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="s-email">E-mailadres</label>
+          <input type="email" id="s-email" placeholder="je@email.nl" required>
+        </div>
+        <div class="field">
+          <label for="s-address">Adres</label>
+          <input type="text" id="s-address" placeholder="Straat, huisnr, postcode en plaats" required>
+        </div>
+      </div>
+
+      <p class="fieldset-label">Gegevens zakelijke facturatie</p>
+      <div class="row">
+        <div class="field">
+          <label for="s-company">Bedrijfsnaam</label>
+          <input type="text" id="s-company" placeholder="Bedrijfsnaam" required>
+        </div>
+        <div class="field">
+          <label for="s-kvk">KVK-nummer</label>
+          <input type="text" id="s-kvk" placeholder="12345678" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="s-invoice-address">Factuuradres</label>
+          <input type="text" id="s-invoice-address" placeholder="Straat, huisnr, postcode en plaats" required>
+        </div>
+        <div class="field">
+          <label for="s-btw">BTW-nummer <span class="optional">(indien van toepassing)</span></label>
+          <input type="text" id="s-btw" placeholder="NL000000000B00">
+        </div>
+      </div>
+
+      <p class="fieldset-label">Overige opmerkingen</p>
+      <div class="field">
+        <label for="s-remarks">Ruimte voor eventuele opmerkingen of bijzonderheden <span class="optional">(optioneel)</span></label>
+        <textarea id="s-remarks" rows="4" placeholder="Is er iets dat we van tevoren moeten weten?"></textarea>
+      </div>
+
+      <div class="checks">
+        <div class="check-row">
+          <input type="checkbox" id="s-agree-voorwaarden" required>
+          <label for="s-agree-voorwaarden">Ik ga akkoord met de <a href="algemene-voorwaarden.pdf" target="_blank">algemene voorwaarden</a>.</label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="s-agree-privacy" required>
+          <label for="s-agree-privacy">Ik ga akkoord met de <a href="privacyverklaring.pdf" target="_blank">privacyverklaring</a>.</label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="s-agree-inschrijving" required>
+          <label for="s-agree-inschrijving">Ik schrijf me in voor Fundament. en ga akkoord met betaling van het tarief voor aanvang van het programma en na ontvangst van de factuur.</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="s-submit">Inschrijving versturen &rarr;</button>
+      <p class="note">Je gegevens worden alleen gebruikt om je inschrijving te verwerken.</p>
+    </form>
+
+    <div id="success" class="card">
+      <strong>Bedankt voor je inschrijving.</strong>
+      We hebben je gegevens ontvangen en nemen zo snel mogelijk contact met je op ter bevestiging.
+    </div>
+    <div id="error" class="card">
+      <strong>Er ging iets mis.</strong>
+      Stuur je gegevens direct naar <a href="mailto:robin@werkplaats.org">robin@werkplaats.org</a>.
+    </div>
+  </div>
+
+  <!-- EmailJS — gratis mailverzending vanuit browser                              -->
+  <!-- Vul dezelfde YOUR_PUBLIC_KEY / YOUR_SERVICE_ID / YOUR_TEMPLATE_ID in als     -->
+  <!-- op de hoofdpagina (index.html), of gebruik een apart template voor dit       -->
+  <!-- inschrijfformulier met de velden die hieronder worden meegestuurd.           -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    var EMAILJS_PUBLIC_KEY  = 'BTzY2KRWEhyEDs6CR';
+    var EMAILJS_SERVICE_ID  = 'service_xv1c43k';
+    var EMAILJS_TEMPLATE_ID = 'template_z8hvrkl';
+
+    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var data = {
+        name:            document.getElementById('s-name').value.trim(),
+        phone:           document.getElementById('s-phone').value.trim(),
+        email:           document.getElementById('s-email').value.trim(),
+        address:         document.getElementById('s-address').value.trim(),
+        company:         document.getElementById('s-company').value.trim(),
+        kvk:             document.getElementById('s-kvk').value.trim(),
+        invoice_address: document.getElementById('s-invoice-address').value.trim(),
+        btw:             document.getElementById('s-btw').value.trim(),
+        remarks:         document.getElementById('s-remarks').value.trim()
+      };
+
+      var agreeVoorwaarden  = document.getElementById('s-agree-voorwaarden').checked;
+      var agreePrivacy      = document.getElementById('s-agree-privacy').checked;
+      var agreeInschrijving = document.getElementById('s-agree-inschrijving').checked;
+
+      if (!data.name || !data.phone || !data.email || !data.address || !data.company || !data.kvk || !data.invoice_address) {
+        alert('Vul alle verplichte velden in.');
+        return;
+      }
+      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(data.email)) {
+        alert('Vul een geldig e-mailadres in.');
+        return;
+      }
+      if (!agreeVoorwaarden || !agreePrivacy || !agreeInschrijving) {
+        alert('Vink alle drie de akkoordverklaringen aan om je inschrijving te versturen.');
+        return;
+      }
+
+      var btn = document.getElementById('s-submit');
+      btn.textContent = 'Versturen...';
+      btn.disabled = true;
+
+      function showSuccess() {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      }
+      function showError() {
+        btn.textContent = 'Inschrijving versturen →';
+        btn.disabled = false;
+        document.getElementById('error').style.display = 'block';
+      }
+
+      if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+        // Demo-modus: toon success zonder echt te verzenden
+        setTimeout(showSuccess, 800);
+        return;
+      }
+
+      // E-mailadres en adres ook vooraan in het opmerkingenveld zetten, zodat
+      // ze hoe dan ook zichtbaar zijn in de ontvangen mail — ook als het
+      // EmailJS-template zelf geen aparte {{from_email}}/{{address}}-plek heeft.
+      var remarksFull = 'E-mailadres: ' + data.email + '\nAdres: ' + data.address +
+        (data.remarks ? '\n\nOverige opmerkingen: ' + data.remarks : '');
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name:       data.name,
+        phone:           data.phone,
+        from_email:      data.email,
+        reply_to:        data.email,
+        address:         data.address,
+        company:         data.company,
+        kvk:             data.kvk,
+        invoice_address: data.invoice_address,
+        btw:             data.btw,
+        remarks:         remarksFull,
+        to_emails:       'robin@werkplaats.org, martijn@werkplaats.org'
+      }).then(showSuccess, function(err) {
+        console.error('EmailJS error:', err);
+        showError();
+      });
+    });
+  </script>
+
+</body>
+</html>
