@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-op-1 trajecten — Fundament.</title>
+  <meta name="description" content="Individuele coachingtrajecten voor mannen die hun proces willen verdiepen — los, of in combinatie met Fundament.">
+
+  <style>
+    :root {
+      --blue: #2E4A48;
+      --blue-dark: #1C2B2B;
+      --black: #0D0D0D;
+      --grey-dark: #1A1A1A;
+      --grey-mid: #555555;
+      --grey-light: #E8E8E8;
+      --grey-bg: #F5F5F5;
+      --white: #FFFFFF;
+      --cream: #F5F0E8;
+      --warm-mid: #E8E0D0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 250;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--grey-light);
+    }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--black); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo-plus { color: var(--blue); margin-right: 2px; }
+    .nav-links { display: flex; gap: 2.25rem; align-items: center; }
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--grey-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--blue); }
+    .nav-link.active { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.7rem 1.5rem;
+      border-radius: 0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-dark); }
+
+    section { padding: 7rem 4rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-label::before { content: '+'; font-size: 0.9rem; font-weight: 700; }
+
+    /* HERO */
+    .hero {
+      padding: 10rem 4rem 5rem;
+      max-width: 900px;
+    }
+    .hero-headline {
+      font-size: clamp(2.75rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      color: var(--blue);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero-subheadline {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin-bottom: 2rem;
+      max-width: 640px;
+    }
+    .hero-body {
+      font-size: 1rem;
+      color: var(--grey-mid);
+      max-width: 680px;
+      line-height: 1.85;
+    }
+    .hero-body p { margin-bottom: 1.25rem; }
+    .marker { background: #F5FF00; padding: 0.05em 0.2em; border-radius: 2px; display: inline; }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      background: var(--blue);
+      color: var(--white);
+      padding: 1rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-btn:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+    /* VOOR WIE */
+    .recognition { background: var(--grey-bg); }
+    .recognition-intro { font-size: 1rem; color: var(--grey-mid); max-width: 680px; margin-bottom: 1rem; line-height: 1.8; }
+
+    /* PAKKETTEN */
+    .packages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .package-card {
+      background: var(--white);
+      border: 1px solid var(--grey-light);
+      padding: 2.5rem;
+    }
+    .package-card.combo { background: var(--blue); color: var(--white); border: none; }
+    .package-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+    }
+    .package-card.combo .package-label { color: rgba(255,255,255,0.7); }
+    .package-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--grey-light);
+    }
+    .package-card.combo .package-row { border-bottom-color: rgba(255,255,255,0.2); }
+    .package-row:last-child { border-bottom: none; }
+    .package-row-label { font-size: 0.95rem; }
+    .package-row-price { font-size: 1.1rem; font-weight: 700; }
+    .package-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--grey-mid);
+      line-height: 1.6;
+    }
+    .package-card.combo .package-note { color: rgba(255,255,255,0.75); }
+
+    /* CTA */
+    .cta-section { background: var(--blue); padding: 6rem 4rem; text-align: center; }
+    .cta-headline {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .cta-body { color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto 2rem; font-size: 1rem; }
+    .cta-section .hero-btn { background: var(--white); color: var(--blue); }
+    .cta-section .hero-btn:hover { background: var(--cream); }
+
+    footer {
+      padding: 3rem 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--grey-light);
+    }
+    .footer-logo { font-weight: 700; color: var(--black); }
+    .footer-logo-plus { color: var(--blue); }
+    .footer-note { font-size: 0.8rem; color: var(--grey-mid); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.8rem; color: var(--grey-mid); text-decoration: none; }
+    .footer-legal a:hover { color: var(--blue); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4.5rem 1.5rem; }
+      .hero { padding: 8rem 1.5rem 3rem; }
+      .packages { grid-template-columns: 1fr; }
+      .cta-section { padding: 4rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><span class="nav-logo-plus">+</span>Fundament.</a>
+    <div class="nav-links">
+      <a href="index.html#voor-wie" class="nav-link">Voor wie</a>
+      <a href="index.html#waarom" class="nav-link">Waarom</a>
+      <a href="index.html#methode" class="nav-link">Methode</a>
+      <a href="index.html#over-ons" class="nav-link">Over</a>
+      <a href="index.html#blog" class="nav-link">Blog</a>
+      <a href="1-op-1-trajecten.html" class="nav-link active">1-op-1 trajecten</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Gesprek aanvragen</a>
+  </nav>
+
+  <section class="hero">
+    <p class="section-label">1-op-1 trajecten</p>
+    <h1 class="hero-headline">Individuele coaching.</h1>
+    <p class="hero-subheadline">Voor mannen die hun proces willen verdiepen — op hun eigen tempo, in alle vertrouwelijkheid.</p>
+    <div class="hero-body">
+      <p>De 1-op-1 trajecten zijn bedoeld voor <span class="marker">dezelfde mannen als Fundament</span>: ondernemers, high potentials, executives en leiders die hebben bewezen wat ze kunnen bereiken en nu willen ontdekken wie ze ten diepste zijn.</p>
+      <p>Waar Fundament werkt met de kracht en spiegeling van de groep, bieden de individuele sessies ruimte om specifiek in te zoomen op jouw situatie — je vraagstuk, je patroon, je volgende stap. Geschikt als op zichzelf staand traject, of als verdieping naast Fundament.</p>
+    </div>
+    <a href="index.html#contact" class="hero-btn">Plan een gratis kennismaking &rarr;</a>
+  </section>
+
+  <section class="packages-section">
+    <div class="section-inner">
+      <p class="section-label">Investering</p>
+      <div class="packages">
+        <div class="package-card">
+          <p class="package-label">Losse sessies</p>
+          <div class="package-row">
+            <span class="package-row-label">3 sessies &middot; 60 min</span>
+            <span class="package-row-price">&euro; 600</span>
+          </div>
+          <div class="package-row">
+            <span class="package-row-label">5 sessies &middot; 60 min</span>
+            <span class="package-row-price">&euro; 1.000</span>
+          </div>
+          <p class="package-note">Prijzen zijn excl. BTW.</p>
+        </div>
+        <div class="package-card combo">
+          <p class="package-label">In combinatie met Fundament</p>
+          <div class="package-row">
+            <span class="package-row-label">3 sessies &middot; 60 min</span>
+            <span class="package-row-price">&euro; 420</span>
+          </div>
+          <div class="package-row">
+            <span class="package-row-label">5 sessies &middot; 60 min</span>
+            <span class="package-row-price">&euro; 700</span>
+          </div>
+          <p class="package-note">Alleen te combineren met deelname aan het groepstraject Fundament. Prijzen zijn excl. BTW.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <p class="cta-headline">Benieuwd of dit bij je past?</p>
+    <p class="cta-body">We starten altijd met een vrijblijvend kennismakingsgesprek, zodat we samen kunnen kijken waar jouw vraag ligt en of een 1-op-1 traject &mdash; los of in combinatie met Fundament &mdash; daarbij aansluit.</p>
+    <a href="index.html#contact" class="hero-btn">Gesprek aanvragen &rarr;</a>
+  </section>
+
+  <footer>
+    <span class="footer-logo"><span class="footer-logo-plus">+</span>Fundament.</span>
+    <span class="footer-note">VOF Werkplaats voor groei en transformatie &mdash; 2026</span>
+    <div class="footer-legal">
+      <a href="algemene-voorwaarden.pdf" target="_blank">Algemene voorwaarden</a>
+      <a href="privacyverklaring.pdf" target="_blank">Privacyverklaring</a>
+    </div>
+  </footer>
+
+</body>
+</html>
