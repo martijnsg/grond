@@ -1977,6 +1977,18 @@ button.pg-btn { font-family: inherit; cursor: pointer; border: 0; }
 @media (max-width: 900px) { .founders-teaser-photos { gap: 1rem; } }
 .founders-teaser-person:hover .founders-teaser-name { text-decoration: underline; text-underline-offset: 3px; }
 
+/* brede sfeerfoto onder de kop van subpagina's */
+.pg-photo { width: 100%; height: clamp(200px, 30vw, 420px); overflow: hidden; background: var(--grey-bg); }
+.pg-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.package-row-price a, .package-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* variant: foto boven de kop (onder de vaste navigatie) */
+.pg-photo--top { margin-top: 92px; }
+.pg-photo--top + .pg-hero { padding-top: 4.5rem; }
+@media (max-width: 900px) { .pg-photo--top { margin-top: 66px; } .pg-photo--top + .pg-hero { padding-top: 3rem; } }
+.blog-page > .pg-photo--top { margin-top: 12px; }
+@media (max-width: 900px) { .blog-page > .pg-photo--top { margin-top: -14px; } }
+
 /* /over-ons: h1 in plaats van h2 */
     .founders-intro h1 {
       font-size: clamp(2rem, 3vw, 2.5rem);
