@@ -1,0 +1,15 @@
+# Oude bestandsnamen -> nieuwe nette URL's
+/index.html                      /                       301
+/jaarprogramma.html              /jaarprogramma/         301
+/vier-avonden.html               /kennismakingsavond/    301
+/vier-avonden                    /kennismakingsavond/    301
+/4-avonden/*                     /kennismakingsavond/    301
+/4-avonden                       /kennismakingsavond/    301
+/1-op-1-trajecten.html           /1-op-1-trajecten/      301
+/inschrijven.html                /inschrijven/           301
+
+# Oude blog-URL's van de vorige website (alleen de vier die bekend zijn; de overige 6 nog aan te vullen)
+/omgaanmetschaamte                                      /blog/omgaan-met-schaamte/                                   301
+/met-welk-verlangen-ben-je-naar-ons-toe-gekomen         /blog/met-welk-verlangen-ben-je-naar-ons-toe-gekomen/        301
+/mannelijkheid-is-destructief                           /blog/mannelijkheid-is-destructief/                          301
+/loslaten                                               /blog/wat-als-je-alles-moet-loslaten/                        301
